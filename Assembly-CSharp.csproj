@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AutoSceneChange.cs" />
+    <Compile Include="Assets\Scripts\ConnectSocialMedias.cs" />
     <Compile Include="Assets\Scripts\SceneChange.cs" />
+    <Compile Include="Assets\Scripts\SoundOption.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/prasanth/Desktop/MobileGame/BallZ/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
