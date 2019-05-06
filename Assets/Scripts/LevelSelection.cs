@@ -7,12 +7,15 @@ public class LevelSelection : MonoBehaviour
 {
     public Sprite levelOne, levelTwo;
     public Button levelFrame;
+    public Image padlockBody, padlockTop;
+    public float unlockSpeed;
     private Button next, previous;
     private int levelNumber;
-    private bool locked = true;
+    public bool locked = true;
     
     void Start()
     {
+        padlockAppearance(false, false);
 
         next = GameObject.FindGameObjectWithTag("LevelNext").GetComponent<Button>();
         previous = GameObject.FindGameObjectWithTag("LevelPrevious").GetComponent<Button>();
@@ -23,6 +26,11 @@ public class LevelSelection : MonoBehaviour
 
         next.onClick.AddListener(nextButton);
         previous.onClick.AddListener(previousButton);
+    }
+
+    void Update()
+    {
+        
     }
 
     private void nextButton()
@@ -43,11 +51,13 @@ public class LevelSelection : MonoBehaviour
     {
         if(levelNumber == 1)
         {
+            levelFrame.interactable = true;
             previous.interactable = false;
             next.interactable = true;
         }
         else if(levelNumber == 2)
         {
+            levelFrame.interactable = false;
             previous.interactable = true;
             next.interactable = false;
         }
@@ -59,11 +69,13 @@ public class LevelSelection : MonoBehaviour
         if(levelNumber == 1)
         {
             levelFrame.image.overrideSprite = levelImage;
+            padlockAppearance(false, false);
         }
         else if(levelNumber == 2)
         {
             if (locked)
             {
+                padlockAppearance(true, true);
                 levelLock(levelImage);
             }
             else
@@ -75,24 +87,28 @@ public class LevelSelection : MonoBehaviour
 
     private void levelLock(Sprite original)
     {
-       // imageGrayScale(ref original);
         levelFrame.image.overrideSprite = original;
     }
 
     private void levelUnLock(Sprite original)
     {
-        //applyAnimation();
+        applyAnimation();
         levelFrame.image.overrideSprite = original;
         locked = false;
     }
 
     private void applyAnimation()
     {
-
+        for (float timer = 0; timer < 5; timer += Time.deltaTime)
+        {
+            padlockTop.transform.Translate(new Vector3(0, 5, 0) * unlockSpeed);
+        }
+        padlockAppearance(false, false);
     }
 
-    private void imageGrayScale(ref Sprite gray)
+    private void padlockAppearance(bool body, bool top)
     {
-       
+        padlockBody.gameObject.SetActive(body);
+        padlockTop.gameObject.SetActive(top);
     }
 }

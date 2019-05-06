@@ -8,6 +8,7 @@ TagManager:
   - Path1
   - LevelNext
   - LevelPrevious
+  - Hole
   layers:
   - Default
   - TransparentFX

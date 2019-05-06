@@ -182,7 +182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Game Engine\t\t\t:"
+  m_Text: "Game Engine\t\t\t :"
 --- !u!222 &46653017
 CanvasRenderer:
   m_ObjectHideFlags: 0

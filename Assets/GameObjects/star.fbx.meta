@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0da80055fb3a9645b80b1102c0021a8
+guid: ab17024abf3588d4e9d90bcc3a73b937
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -11,7 +11,12 @@ ModelImporter:
     2300000: polySurface4
     3300000: polySurface4
     4300000: polySurface4
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ornaments_m_ornamentsSG1
+    second: {fileID: 2100000, guid: 31f7220bc5027534c8ab12f44dd140e5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

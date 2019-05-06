@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\AutoSceneChange.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\ConnectSocialMedias.cs" />
+    <Compile Include="Assets\Scripts\CrckedHole.cs" />
     <Compile Include="Assets\Scripts\LevelSelection.cs" />
     <Compile Include="Assets\Scripts\Mute.cs" />
     <Compile Include="Assets\Scripts\OnTrigger.cs" />

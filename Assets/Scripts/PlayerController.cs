@@ -8,11 +8,18 @@ public class PlayerController : MonoBehaviour
     public Text counting;
     public float time;
     public float speed;
+    public static bool moveAllowed = true;
+    public static bool isDead = false;
     private Rigidbody rigid;
+    //private Animator animator;
+    //float dirX, dirY;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        //animator = GetComponent<Animator>();
+
+        //animator.SetBool("BallDead", isDead);
     }
 
     void Update()
@@ -24,10 +31,21 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            //dirX = Input.acceleration.x * speed;
+            //dirY = Input.acceleration.y * speed;
+
             counting.text = "";
             playerMovement();
         }
     }
+
+    /*void FixedUpdate()
+    {
+        if (moveAllowed)
+        {
+            rigid.velocity = new Vector2(rigid.velocity.x + dirX, rigid.velocity.y + dirY);
+        }
+    }*/
 
     private void playerMovement()
     {
@@ -35,8 +53,8 @@ public class PlayerController : MonoBehaviour
         transform.Translate(new Vector3(0, 0, 1) * speed);
     }
 
-    private void inputAccelaration()
+    public static void PlayerDead()
     {
-        
+        isDead = true;
     }
 }
