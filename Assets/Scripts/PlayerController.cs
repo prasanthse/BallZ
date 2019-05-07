@@ -9,13 +9,15 @@ public class PlayerController : MonoBehaviour
     public float time;
     public float speed;
     public static bool moveAllowed = true;
-    public static bool isDead = false;
+    public static bool isDead;
     private Rigidbody rigid;
     //private Animator animator;
     //float dirX, dirY;
 
     void Start()
     {
+        isDead = false;
+
         rigid = GetComponent<Rigidbody>();
         //animator = GetComponent<Animator>();
 
@@ -36,6 +38,11 @@ public class PlayerController : MonoBehaviour
 
             counting.text = "";
             playerMovement();
+
+            /*if (isDead)
+            {
+                animator.SetBool("BallDead", isDead);
+            }*/
         }
     }
 

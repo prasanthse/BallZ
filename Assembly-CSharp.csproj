@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AnimatedText.cs" />
     <Compile Include="Assets\Scripts\AutoSceneChange.cs" />
+    <Compile Include="Assets\Scripts\BallDeadTrue.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\ConnectSocialMedias.cs" />
     <Compile Include="Assets\Scripts\CrckedHole.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Scripts\OnTrigger.cs" />
     <Compile Include="Assets\Scripts\PlayAudioClip.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Random.cs" />
     <Compile Include="Assets\Scripts\RoadDevelopment.cs" />
     <Compile Include="Assets\Scripts\SceneChange.cs" />
     <Compile Include="Assets\Scripts\StarSpin.cs" />
