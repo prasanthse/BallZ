@@ -35,7 +35,6 @@ public class RoadDevelopment : MonoBehaviour
 
         if ((playerTransform.position.z > 400) && (playerTransform.position.z > ((200 * (pathsCreated - 2)) + 205) && playerTransform.position.z < ((200 * (pathsCreated - 2)) + 206))) //Delete the previous path when player moves into new path after z position 5
         {
-            //Destroy(GameObject.Find("StraightRoad(Clone)"));
             Debug.Log("delete");
         }
     }

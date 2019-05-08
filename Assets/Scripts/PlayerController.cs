@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
         //animator = GetComponent<Animator>();
 
         //animator.SetBool("BallDead", isDead);
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     void Update()
