@@ -5,10 +5,11 @@ using UnityEngine;
 public class RoadDevelopment : MonoBehaviour
 {
     public Transform playerTransform;
-    public GameObject path1, path2;
+    public GameObject path1, path2, star;
     private GameObject[] pathTypes;
     private int numberOfPaths = 2;
     private Random random;
+    private CreateStars createStars;
     private static float selectedPath;
     private int pathsCreated;
 
@@ -20,6 +21,8 @@ public class RoadDevelopment : MonoBehaviour
         pathTypes[1] = path2;
 
         random = new Random();
+        createStars = new CreateStars(random);
+
         pathsCreated = 1;
     }
 
@@ -30,7 +33,11 @@ public class RoadDevelopment : MonoBehaviour
             ChangeShapes();
         }
 
-        //destroyPreviousPath();
+        if ((playerTransform.position.z > 400) && (playerTransform.position.z > ((200 * (pathsCreated - 2)) + 205) && playerTransform.position.z < ((200 * (pathsCreated - 2)) + 206))) //Delete the previous path when player moves into new path after z position 5
+        {
+            //Destroy(GameObject.Find("StraightRoad(Clone)"));
+            Debug.Log("delete");
+        }
     }
 
     private void ChangeShapes()
@@ -38,14 +45,26 @@ public class RoadDevelopment : MonoBehaviour
         selectedPath = random.randomNumberGenerator(0, numberOfPaths);
         Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * pathsCreated + 98)), Quaternion.identity);
         pathsCreated += 1;
+
+        placeStars();
     }
 
-    private void destroyPreviousPath()
+    private void placeStars()
     {
-        if (playerTransform.position.z > (205 * (pathsCreated + 1)) && playerTransform.position.z < ((205 * (pathsCreated + 1)) + 10)) //Delete the previous path when player moves into new path after z position 5
+        Debug.Log("Number of stars: " + createStars.createRandomStars());
+
+        float xPosition = 0;
+        float zPosition = 0;
+        float zMin = 200 * (pathsCreated - 1);
+
+        for (int i = 0; i < createStars.createRandomStars(); i++)
         {
-            //Destroy(GameObject.Find("Path(Clone)"));
-            GameObject.Find("Path(Clone)").SetActive(false);
+            Debug.Log("Star Number: " + i);
+
+            xPosition = random.randomNumberGenerator((float)-1.4, (float)1.4);
+            zPosition = random.randomNumberGenerator(zMin, zMin + 200);
+
+            Instantiate(star, new Vector3(xPosition, (float)0.4, zPosition), Quaternion.identity);
         }
     }
 }
