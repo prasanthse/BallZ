@@ -9,6 +9,10 @@ TagManager:
   - LevelNext
   - LevelPrevious
   - Hole
+  - LavaRock
+  - Quit
+  - YesQuit
+  - NoQuit
   layers:
   - Default
   - TransparentFX
