@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 194770305}
   - component: {fileID: 194770306}
   - component: {fileID: 194770307}
+  - component: {fileID: 194770308}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -244,7 +245,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194770298}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 204a4561b1a9fd846a668c83fd54acb0, type: 3}
   m_Name: 
@@ -252,7 +253,9 @@ MonoBehaviour:
   lavaRock: {fileID: 1538639911670307046, guid: 17eb5fd0d089ba14282ea1ac31efd539,
     type: 3}
   player: {fileID: 2042983983}
-  time: 6
+  time: 5
+  ground: {fileID: 194770308}
+  timeBetweenLavaRocks: 0.03
 --- !u!65 &194770306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -278,6 +281,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1a552211ea2b74ab7239311b148f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &194770308
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194770298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: -4, z: 0}
 --- !u!1 &348541973
 GameObject:
   m_ObjectHideFlags: 0

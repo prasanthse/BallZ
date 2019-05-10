@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ExitApp : MonoBehaviour
 {
     public GameObject exitWindow;
+    public bool mainMenu = false;
     private Button yes, no;
-    private Color color = Color.red;
 
     void Start()
     {
@@ -21,12 +22,17 @@ public class ExitApp : MonoBehaviour
     {
         if (Input.GetKey("escape"))
         {
-           // Time.timeScale = 0;
+            if (mainMenu)
+            {
+                exitWindow.SetActive(true);
 
-            exitWindow.SetActive(true);
-
-            yes.onClick.AddListener(yesQuit);
-            no.onClick.AddListener(noQuit);
+                yes.onClick.AddListener(yesQuit);
+                no.onClick.AddListener(noQuit);
+            }
+            else
+            {
+                SceneManager.LoadScene(1);
+            }
         }
     }
 

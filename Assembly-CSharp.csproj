@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\CreateStars.cs" />
     <Compile Include="Assets\Scripts\DestroyObject.cs" />
     <Compile Include="Assets\Scripts\ExitApp.cs" />
+    <Compile Include="Assets\Scripts\GroundCollider.cs" />
     <Compile Include="Assets\Scripts\LavaRock.cs" />
     <Compile Include="Assets\Scripts\LevelSelection.cs" />
     <Compile Include="Assets\Scripts\Mute.cs" />

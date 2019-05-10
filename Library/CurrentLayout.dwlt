@@ -47,7 +47,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 53
+  controlID: 105
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 10746
+  m_LastSelectedObjectID: 24406
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -463,19 +463,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\Users\prasanth\Desktop\MobileGame\BallZ
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 62260000
-    m_LastClickedID: 9826
+    m_SelectedIDs: c6280000
+    m_LastClickedID: 10438
     m_ExpandedIDs: 00000000622600008a2a00008c2a00008e2a0000902a0000922a0000942a0000962a0000982a00009a2a00009c2a00009e2a0000a02a0000a22a0000a42a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 10}
     m_GridSize: 74
   m_DirectoriesAreaWidth: 115
 --- !u!114 &17
@@ -623,9 +623,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 62d1ffff7ed1ffffa8d2ffffb8d2ffffc4d2ffffd8d2ffffe8d2ffff02d3ffffa6d3ffffc2d3ffffecd4fffffcd4ffff08d5ffff1cd5ffff2cd5ffff46d5ffff66d6ffff82d6ffffacd7ffffbcd7ffffc8d7ffffdcd7ffffecd7ffff06d8ffff86d9ffffa2d9ffffccdaffffdcdaffffe8dafffffcdaffff0cdbffff26dbffff3cdcffff58dcffff82ddffff92ddffff9eddffffb2ddffffc2ddffffdcddffffd6fbffff
+      m_SelectedIDs: 565f0000
+      m_LastClickedID: 24406
+      m_ExpandedIDs: fcc4ffff3cc5ffff58c5ffffa2c6ffffaec6fffffac6ffff50c7ffff9cc7ffffaac7ffffc2c8ffff42c9ffffaac9ffff28caffff2acbffff60ccffffc6ccffff34cdffff80cdfffffacdffff14ceffff62cfffff72cfffffc2cfffff1cd0ffff6cd0ffff7ed0ffff8ed1ffff3cd2ffff8cd2ffffa6d2fffff0d3ffff00d4ffff0cd4ffff22d4ffff6ed4ffff7cd4fffff2d5ffff2cfaffff94faffffd6fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -681,9 +681,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.43538833, y: 0.4239883, z: 2.2814832}
+    m_Target: {x: 0.025151111, y: 0.88608116, z: 2.0847983}
     speed: 2
-    m_Value: {x: -0.43538833, y: 0.4239883, z: 2.2814832}
+    m_Value: {x: 0.025151111, y: 0.88608116, z: 2.0847983}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -711,19 +711,19 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.15332432, y: -0.08437923, z: 0.01314126, w: 0.9844791}
+    m_Target: {x: 0.086882845, y: 0.013448015, z: -0.0011730386, w: 0.99612707}
     speed: 2
-    m_Value: {x: 0.15332432, y: -0.08437923, z: 0.01314126, w: 0.9844791}
+    m_Value: {x: 0.086882845, y: 0.013448015, z: -0.0011730386, w: 0.99612707}
   m_Size:
-    m_Target: 2.4434128
+    m_Target: 6.0434136
     speed: 2
-    m_Value: 2.4434128
+    m_Value: 6.0434136
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: 0.008980488, y: -0.06595059, z: 0.00059352454, w: 0.9977823}
+  m_LastSceneViewRotation: {x: 0.086882845, y: 0.013448015, z: -0.0011730386, w: 0.99612707}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
