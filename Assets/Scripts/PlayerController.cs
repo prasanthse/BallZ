@@ -35,9 +35,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            //dirX = Input.acceleration.x * speed;
-            //dirY = Input.acceleration.y * speed;
-
             counting.text = "";
             playerMovement();
 
@@ -58,8 +55,10 @@ public class PlayerController : MonoBehaviour
 
     private void playerMovement()
     {
-        transform.Rotate(Vector3.forward, 100);
-        transform.Translate(new Vector3(0, 0, 1) * speed);
+        float dirX = Input.acceleration.x;
+
+        //transform.Rotate(100, 0, 0);
+        transform.Translate(dirX * (3 * speed/4), 0, speed);
     }
 
     public static void PlayerDead()

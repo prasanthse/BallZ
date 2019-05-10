@@ -35,12 +35,4 @@ public class LavaRock : MonoBehaviour
         Instantiate(lavaRock, new Vector3((int)random.randomNumberGenerator(-Screen.width/2, Screen.width/2), (int)random.randomNumberGenerator(10, 50), (int)random.randomNumberGenerator(player.position.z, player.position.z + 200)), Quaternion.identity);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Path1"))
-        {
-            Debug.Log("Hit");
-        }
-    }
-
 }

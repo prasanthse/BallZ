@@ -24,6 +24,7 @@ public class OnTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Star"))
         {
             other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
             count = count + 1;
             playSoundClip();
             setCountToText();
