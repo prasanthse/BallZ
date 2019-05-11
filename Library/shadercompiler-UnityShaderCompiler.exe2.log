@@ -1,54 +1,136 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=9 insize=1326 outsize=1125 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=1326 outsize=669 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=1326 outsize=613 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=3849 outsize=2157 ok=1
+Cmd: compileComputeKernel
+  api=9 insize=9814 outsize=8033 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=9814 outsize=3601 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=4750 outsize=2033 ok=1
+Cmd: compileComputeKernel
+  api=9 insize=3537 outsize=3553 ok=1
+Cmd: compileComputeKernel
+  api=9 insize=1565 outsize=2677 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=1491 outsize=1037 ok=1
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=98889 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=29981 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=38789 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=46673 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=32369 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=35789 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=34417 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=71077 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=35097 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=31437 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=40497 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=33865 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=72053 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=35845 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=14379 outsize=72621 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=26814 outsize=13793 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=26814 outsize=15857 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=26814 outsize=16041 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=2711 outsize=1517 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=10881 outsize=9849 ok=1
+Cmd: compileComputeKernel
+  api=9 insize=4845 outsize=10541 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=4845 outsize=5397 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=6353 outsize=1341 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=18299 outsize=8693 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=18299 outsize=8553 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=18299 outsize=10549 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=19063 outsize=14105 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=19063 outsize=14377 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=2867 outsize=1329 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=1806 outsize=1389 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=20454 outsize=27309 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=34758 outsize=34113 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=34758 outsize=34617 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=34758 outsize=33321 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=34758 outsize=34617 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16360 outsize=7029 ok=1
+Cmd: compileComputeKernel
+  error: 2 plat 9 at Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/ShaderVariablesDecal.hlsl(15): #error "RWTexture2D" is not supported on GLES 3.0
+  error: 2 plat 9 at Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariablesFunctions.hlsl(135): #error "SAMPLE_TEXTURECUBE_ARRAY" is not supported on GLES 3.0
+  error: 2 plat 9 at Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderVariablesFunctions.hlsl(140): #error "SAMPLE_TEXTURECUBE_ARRAY_LOD" is not supported on GLES 3.0
+  api=9 insize=3506 outsize=0 ok=0
+Cmd: compileComputeKernel
+  api=4 insize=3506 outsize=1685 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=5809 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=6893 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=6625 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=6501 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=7485 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=9453 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=8317 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=9977 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=8345 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=8461 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=8501 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=10469 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=8805 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=16866 outsize=10245 ok=1
+Unhandled exception: Protocol error - unexpected end of data (did the Editor crash?)
+
+Quitting shader compiler process

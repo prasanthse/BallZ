@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoadDevelopment : MonoBehaviour
 {
+    public BoxCollider pathCollider;
     public Transform playerTransform;
     public GameObject path1, path2, star;
     private GameObject[] pathTypes;
@@ -12,6 +13,11 @@ public class RoadDevelopment : MonoBehaviour
     private CreateStars createStars;
     private static float selectedPath;
     private int pathsCreated;
+    private bool deletePath;
+
+    private float x = 0;
+    private float y = (float)-0.9;
+    private float z;
 
     void Start()
     {
@@ -24,19 +30,23 @@ public class RoadDevelopment : MonoBehaviour
         createStars = new CreateStars(random);
 
         pathsCreated = 1;
+        deletePath = false;
     }
 
     void Update()
     {
+        z = playerTransform.position.z - 210;
+        pathCollider.center = new Vector3(x, y, z);
+
         if (playerTransform.position.z > (200*pathsCreated - 50) && playerTransform.position.z < ((200 * pathsCreated - 50) + 1)) //New path added when the player reached the 3/4 (150) of length of it's current path
         {
             ChangeShapes();
         }
 
-        /*if ((playerTransform.position.z > 400) && (playerTransform.position.z > ((200 * (pathsCreated - 2)) + 205) && playerTransform.position.z < ((200 * (pathsCreated - 2)) + 206))) //Delete the previous path when player moves into new path after z position 5
+        if ((playerTransform.position.z > 400) && (playerTransform.position.z > ((200 * (pathsCreated - 2)) + 205) && playerTransform.position.z < ((200 * (pathsCreated - 2)) + 206))) //Delete the previous path when player moves into new path after z position 5
         {
             Debug.Log("delete");
-        }*/
+        }
     }
 
     private void ChangeShapes()
@@ -64,6 +74,14 @@ public class RoadDevelopment : MonoBehaviour
             zPosition = random.randomNumberGenerator(zMin, zMin + 200);
 
             Instantiate(star, new Vector3(xPosition, (float)0.4, zPosition), Quaternion.identity);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag.Equals("Path"))
+        {
+            Debug.Log("Path destroyed");
         }
     }
 }

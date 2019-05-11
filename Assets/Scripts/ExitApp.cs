@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ExitApp : MonoBehaviour
 {
     public GameObject exitWindow;
-    public bool mainMenu = false;
+    public bool mainMenu = false, game = false;
     private Button yes, no;
 
     void Start()
@@ -22,14 +22,22 @@ public class ExitApp : MonoBehaviour
     {
         if (Input.GetKey("escape"))
         {
-            if (mainMenu)
+            if (mainMenu || game)
             {
+                if (game)
+                {
+                    if(Time.timeScale == 1)
+                    {
+                        Time.timeScale = 0;
+                    }
+                }
+
                 exitWindow.SetActive(true);
 
                 yes.onClick.AddListener(yesQuit);
                 no.onClick.AddListener(noQuit);
-            }
-            else
+
+            }else
             {
                 SceneManager.LoadScene(1);
             }
@@ -44,5 +52,6 @@ public class ExitApp : MonoBehaviour
     private void noQuit()
     {
         exitWindow.SetActive(false);
+        Time.timeScale = 1;
     }
 }

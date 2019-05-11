@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GroundCollider : MonoBehaviour
 {
-    private float x = 0;
-    private float y = (float)0.5; //-4
-
-    public void adjustColliderSize(BoxCollider ground, float playerPositionZ)
+    private void OnTriggerEnter(Collider other)
     {
-        ground.center = new Vector3(x, y, playerPositionZ);
+        if (other.gameObject.tag.Equals("LavaRock"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -14,19 +14,17 @@ public class LavaRock : MonoBehaviour
     private int numberOfRocks;
     private GroundCollider groundCollider;
 
+    private float currentTime = 0;
+
     private float x = Screen.width;
     private float y = 1;
     private float z = 200;
-
-    private float currentTime = 0;
 
     void Start()
     {
         random = new Random();
         groundCollider = new GroundCollider();
         numberOfRocks = 0;
-
-        ground.size = new Vector3(x, y, z);
     }
 
     void Update()
@@ -39,7 +37,7 @@ public class LavaRock : MonoBehaviour
         else
         {
             dropLavaRocks();
-            groundCollider.adjustColliderSize(ground, player.position.z);
+            ground.size = new Vector3(x, y, player.position.z * 2);
         }
         
     }

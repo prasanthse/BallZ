@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Star
-  - Path1
   - LevelNext
   - LevelPrevious
   - Hole
@@ -13,6 +12,7 @@ TagManager:
   - Quit
   - YesQuit
   - NoQuit
+  - Path
   layers:
   - Default
   - TransparentFX
