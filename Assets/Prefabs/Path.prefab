@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1798106774334616843}
   - component: {fileID: 1798106774334616842}
   - component: {fileID: 1798106774334616841}
+  - component: {fileID: 6589075946928421593}
   m_Layer: 0
   m_Name: Path
   m_TagString: Path
@@ -89,5 +90,19 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.98, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6589075946928421593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798106774334616847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1a552211ea2b74ab7239311b148f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectTag: LavaRock
+  hole: {fileID: 3294983324725500956, guid: 1b051eb89a5115f4cb44f89c14116afc, type: 3}

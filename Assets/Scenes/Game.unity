@@ -329,7 +329,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194770298}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 204a4561b1a9fd846a668c83fd54acb0, type: 3}
   m_Name: 
@@ -365,6 +365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1a552211ea2b74ab7239311b148f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectTag: Star
+  hole: {fileID: 3294983324725500956, guid: 1b051eb89a5115f4cb44f89c14116afc, type: 3}
 --- !u!65 &194770308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1635,6 +1637,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798106774334616841, guid: 2d273b0191a45b542a36be8f91897e84,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798106774334616841, guid: 2d273b0191a45b542a36be8f91897e84,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798106774334616841, guid: 2d273b0191a45b542a36be8f91897e84,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d273b0191a45b542a36be8f91897e84, type: 3}
