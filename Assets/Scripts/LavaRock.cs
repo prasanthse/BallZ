@@ -36,8 +36,11 @@ public class LavaRock : MonoBehaviour
         }
         else
         {
-            dropLavaRocks();
-            ground.size = new Vector3(x, y, player.position.z * 2);
+            if (!PlayerDead.isDead)
+            {
+                dropLavaRocks();
+                ground.size = new Vector3(x, y, player.position.z * 2);
+            }
         }
         
     }

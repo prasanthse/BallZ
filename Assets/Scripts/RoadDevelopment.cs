@@ -38,7 +38,7 @@ public class RoadDevelopment : MonoBehaviour
         z = playerTransform.position.z - 210;
         pathCollider.center = new Vector3(x, y, z);
 
-        if (playerTransform.position.z > (200*pathsCreated - 50) && playerTransform.position.z < ((200 * pathsCreated - 50) + 1)) //New path added when the player reached the 3/4 (150) of length of it's current path
+        if (playerTransform.position.z > (200*pathsCreated - 50) && playerTransform.position.z < ((200 * pathsCreated - 50) + 1) && !PlayerDead.isDead) //New path added when the player reached the 3/4 (150) of length of it's current path
         {
             ChangeShapes();
         }

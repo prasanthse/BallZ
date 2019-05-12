@@ -9,13 +9,6 @@ public class Life : MonoBehaviour
     public Image life1, life2, life3, life4, life5;
     private static int playerLife = 5;
 
-    public void ReduceLife()
-    {
-        playerLife -= 1;
-        ChangeLifeLogo();
-        Debug.Log(playerLife);
-    }
-
     public void IncreaseLife()
     {
         playerLife += 1;

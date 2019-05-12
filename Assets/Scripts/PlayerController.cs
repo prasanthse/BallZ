@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour
         {
             counting.text = "";
             playerMovement();
+
+            if (PlayerDead.isDead)
+            {
+                SetPlayerDead();
+            }
         }
     }
 
@@ -45,10 +50,23 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x > 1.5 || transform.position.x < -1.5)
         {
             rigid.isKinematic = false;
+
+            PlayerDead.isDead = true;
+
+            PlayerDead.x = transform.position.x;
+            PlayerDead.z = transform.position.z;
         }
         else
         {
             rigid.isKinematic = true;
         }
+    }
+
+    private void SetPlayerDead()
+    {
+        rigid.isKinematic = false;
+        transform.Translate(PlayerDead.x, -5, PlayerDead.z);
+        transform.Rotate(0, 0, 0);
+        rigid.velocity = Vector3.zero;
     }
 }
