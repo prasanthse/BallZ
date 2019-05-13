@@ -5,7 +5,6 @@ using UnityEngine;
 public class CreateStars : MonoBehaviour
 {
     public int createdStars = 0;
-    public int totalStars = 0;
     private Random random;
 
     public CreateStars(Random random)
@@ -22,17 +21,12 @@ public class CreateStars : MonoBehaviour
 
     private void calculateTotalStars()
     {
-        totalStars = totalStars + createdStars;
-    }
-
-    public int returnTotalStars()
-    {
-        return totalStars;
+        Points.currentStars = Points.currentStars + createdStars;
     }
 
     public bool starLimitation()
     {
-        if(totalStars <= Points.totalPoints - 6)
+        if(Points.currentStars <= Points.totalPoints - 6)
         {
             return true;
         }

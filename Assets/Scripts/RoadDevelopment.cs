@@ -55,12 +55,14 @@ public class RoadDevelopment : MonoBehaviour
         Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * pathsCreated + 98)), Quaternion.identity);
         pathsCreated += 1;
 
+        Debug.Log("Paths: " + pathsCreated);
+
         placeStars();
     }
 
     private void placeStars()
     {
-        //Debug.Log("Number of stars: " + createStars.createRandomStars());
+        Debug.Log("Number of stars: " + createStars.createRandomStars());
 
         float xPosition = 0;
         float zPosition = 0;
@@ -68,7 +70,7 @@ public class RoadDevelopment : MonoBehaviour
 
         for (int i = 0; i < createStars.createRandomStars(); i++)
         {
-            //Debug.Log("Star Number: " + i);
+            Debug.Log("Star Number: " + i);
 
             xPosition = random.randomNumberGenerator((float)-1.4, (float)1.4);
             zPosition = random.randomNumberGenerator(zMin, zMin + 200);

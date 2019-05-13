@@ -512,7 +512,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.94, y: 1, z: 1}
-  m_Center: {x: 0, y: -0.9, z: -5}
+  m_Center: {x: 0, y: -0.9, z: -4.97}
 --- !u!114 &194770312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194770298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a03744aa7a8582b4fb00e1d6c8aaab67, type: 3}
   m_Name: 
@@ -1568,6 +1568,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverStatus
       objectReference: {fileID: 0}
+    - target: {fileID: 6780811574897917253, guid: 21b7ef9989ab36741856255616b1aa67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6780811574897917252, guid: 21b7ef9989ab36741856255616b1aa67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1622,6 +1627,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780811573638872708, guid: 21b7ef9989ab36741856255616b1aa67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780811574655731296, guid: 21b7ef9989ab36741856255616b1aa67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21b7ef9989ab36741856255616b1aa67, type: 3}

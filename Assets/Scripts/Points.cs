@@ -7,4 +7,5 @@ public class Points : MonoBehaviour
 {
     public static int totalPoints = 50;
     public static int playerPoints = 0;
+    public static int currentStars = 0;
 }

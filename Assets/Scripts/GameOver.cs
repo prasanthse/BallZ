@@ -35,8 +35,8 @@ public class GameOver : MonoBehaviour
 
     private void setTitleText(bool lostText, bool winText)
     {
-        lost.gameObject.SetActive(false);
-        win.gameObject.SetActive(false);
+        lost.GetComponent<Text>().enabled = lostText;
+        win.GetComponent<Text>().enabled = winText;
     }
 
     private void setButtonText(string decisionWord)
@@ -45,10 +45,12 @@ public class GameOver : MonoBehaviour
 
         if (decisionWord.Equals("Retry"))
         {
-            Debug.Log("lost");
-        }else if (decisionWord.Equals("next"))
+            Debug.Log("retry");
+            //SceneManager.LoadScene(5);
+        }
+        else if (decisionWord.Equals("next"))
         {
-            Debug.Log("win");
+            SceneManager.LoadScene(4);
         }
     }
 

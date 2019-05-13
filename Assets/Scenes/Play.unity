@@ -753,6 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitWindow: {fileID: 1529773457}
   mainMenu: 0
+  game: 0
 --- !u!1 &1043236144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelOne: {fileID: 21300000, guid: 333dce2b1fd1b0c43889417ef95e10ea, type: 3}
-  levelTwo: {fileID: 21300000, guid: c8678e5342fd499448563c500bdd263d, type: 3}
+  levelTwo: {fileID: 21300000, guid: 9d9e0a7873c006e49b4084f4e5d3e3d5, type: 3}
   levelFrame: {fileID: 1636844183}
   padlockBody: {fileID: 468115448}
   padlockTop: {fileID: 1702879810}
