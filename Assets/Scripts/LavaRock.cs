@@ -42,7 +42,7 @@ public class LavaRock : MonoBehaviour
                 ground.size = new Vector3(x, y, player.position.z * 2);
             }
         }
-        
+
     }
 
     private void dropLavaRocks()

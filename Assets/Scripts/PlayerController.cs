@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public static bool isDead;
     private Rigidbody rigid;
+    private bool movement;
+    private Life life;
 
     void Start()
     {
@@ -19,6 +21,9 @@ public class PlayerController : MonoBehaviour
         rigid.isKinematic = true;
 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        movement = true;
+
+        life = new Life();
     }
 
     void Update()
@@ -31,9 +36,13 @@ public class PlayerController : MonoBehaviour
         else
         {
             counting.text = "";
-            playerMovement();
 
-            if (PlayerDead.isDead)
+            if (movement)
+            {
+                playerMovement();
+            }
+
+            if (PlayerDead.isDead && movement)
             {
                 SetPlayerDead();
             }
@@ -44,7 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         float dirX = Input.acceleration.x;
 
-        transform.Rotate(0, 0, 100);
+        //transform.Rotate(0, 0, 100);
         transform.Translate(dirX * (3 * speed/4), 0, speed);
 
         if (transform.position.x > 1.5 || transform.position.x < -1.5)
@@ -64,9 +73,11 @@ public class PlayerController : MonoBehaviour
 
     private void SetPlayerDead()
     {
-        rigid.isKinematic = false;
-        transform.Translate(PlayerDead.x, -5, PlayerDead.z);
-        transform.Rotate(0, 0, 0);
-        rigid.velocity = Vector3.zero;
+        transform.Translate(PlayerDead.x, -1, PlayerDead.z);
+        //transform.Rotate(0, 0, 0);
+
+        movement = false;
+
+        life.decreaseLife();
     }
 }

@@ -13,6 +13,11 @@ TagManager:
   - YesQuit
   - NoQuit
   - Path
+  - Life1
+  - Life2
+  - Life3
+  - Life4
+  - Life5
   layers:
   - Default
   - TransparentFX

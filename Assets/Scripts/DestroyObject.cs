@@ -28,11 +28,11 @@ public class DestroyObject : MonoBehaviour
             {
                 if(rock.transform.position.x > 1.25)
                 {
-                    Instantiate(hole, new Vector3((float)1.24, (float)0.03, rock.transform.position.z), Quaternion.Euler(90, 0, 0));
+                    Instantiate(hole, new Vector3((float)1.20, (float)0.03, rock.transform.position.z), Quaternion.Euler(90, 0, 0));
                 }
                 else
                 {
-                    Instantiate(hole, new Vector3((float)-1.24, (float)0.03, rock.transform.position.z), Quaternion.Euler(90, 0, 0));
+                    Instantiate(hole, new Vector3((float)-1.20, (float)0.03, rock.transform.position.z), Quaternion.Euler(90, 0, 0));
                 }
             }
             else

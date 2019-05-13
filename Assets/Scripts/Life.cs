@@ -5,14 +5,38 @@ using UnityEngine.UI;
 
 public class Life : MonoBehaviour
 {
-    public Sprite lifeImage, lostImage;
-    public Image life1, life2, life3, life4, life5;
+    private Sprite lifeImage, lostImage;
+    private Image life1, life2, life3, life4, life5;
     private static int playerLife = 5;
+
+    public Life()
+    {
+        lifeImage = Resources.Load<Sprite>("Life");
+        lostImage = Resources.Load<Sprite>("Out");
+
+        life1 = GameObject.FindWithTag("Life1").GetComponent<Image>();
+        life2 = GameObject.FindWithTag("Life2").GetComponent<Image>();
+        life3 = GameObject.FindWithTag("Life3").GetComponent<Image>();
+        life4 = GameObject.FindWithTag("Life4").GetComponent<Image>();
+        life5 = GameObject.FindWithTag("Life5").GetComponent<Image>();
+    }
 
     public void IncreaseLife()
     {
-        playerLife += 1;
-        ChangeLifeLogo();
+        if (playerLife <= 4)
+        {
+            playerLife += 1;
+            ChangeLifeLogo();
+        }
+    }
+
+    public void decreaseLife()
+    {
+        if (playerLife > 0)
+        {
+            playerLife -= 1;
+            ChangeLifeLogo();
+        }
     }
 
     public void ChangeLifeLogo()
