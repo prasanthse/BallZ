@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class OnTrigger : MonoBehaviour
 {
-
-    private int count;
     public Text StarCountText;
     public AudioSource soundClip;
 
@@ -15,7 +13,7 @@ public class OnTrigger : MonoBehaviour
         StarCountText.GetComponent<Text>();
         soundClip.GetComponent<AudioSource>();
 
-        count = 0;
+        Points.playerPoints = 0;
         setCountToText();
     }
 
@@ -25,7 +23,7 @@ public class OnTrigger : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
-            count = count + 1;
+            Points.playerPoints += 1;
             playSoundClip();
             setCountToText();
         }
@@ -33,7 +31,7 @@ public class OnTrigger : MonoBehaviour
 
     private void setCountToText()
     {
-        StarCountText.text = "Score:  " + count.ToString();
+        StarCountText.text = "Score:  " + Points.playerPoints.ToString();
     }
 
     private void playSoundClip()

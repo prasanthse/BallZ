@@ -489,6 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitWindow: {fileID: 39891249}
   mainMenu: 1
+  game: 0
 --- !u!1001 &375478518
 PrefabInstance:
   m_ObjectHideFlags: 0

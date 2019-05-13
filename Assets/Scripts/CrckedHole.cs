@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CrckedHole : MonoBehaviour
 {
-    public AudioSource holeSound;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -14,8 +13,6 @@ public class CrckedHole : MonoBehaviour
 
             PlayerDead.x = other.transform.position.x;
             PlayerDead.z = other.transform.position.z;
-
-            holeSound.Play();
         }
     }
 }

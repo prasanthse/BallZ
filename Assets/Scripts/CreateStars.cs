@@ -7,7 +7,6 @@ public class CreateStars : MonoBehaviour
     public int createdStars = 0;
     public int totalStars = 0;
     private Random random;
-    private int maximumStars = 50;
 
     public CreateStars(Random random)
     {
@@ -33,7 +32,7 @@ public class CreateStars : MonoBehaviour
 
     public bool starLimitation()
     {
-        if(totalStars <= maximumStars - 6)
+        if(totalStars <= Points.totalPoints - 6)
         {
             return true;
         }
