@@ -42,11 +42,6 @@ public class RoadDevelopment : MonoBehaviour
         {
             ChangeShapes();
         }
-
-        if ((playerTransform.position.z > 400) && (playerTransform.position.z > ((200 * (pathsCreated - 2)) + 205) && playerTransform.position.z < ((200 * (pathsCreated - 2)) + 206))) //Delete the previous path when player moves into new path after z position 5
-        {
-            Debug.Log("delete");
-        }
     }
 
     private void ChangeShapes()
@@ -55,14 +50,12 @@ public class RoadDevelopment : MonoBehaviour
         Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * pathsCreated + 98)), Quaternion.identity);
         pathsCreated += 1;
 
-        Debug.Log("Paths: " + pathsCreated);
-
         placeStars();
     }
 
     private void placeStars()
     {
-        Debug.Log("Number of stars: " + createStars.createRandomStars());
+        //Debug.Log("Number of stars: " + createStars.createRandomStars());
 
         float xPosition = 0;
         float zPosition = 0;
@@ -70,20 +63,12 @@ public class RoadDevelopment : MonoBehaviour
 
         for (int i = 0; i < createStars.createRandomStars(); i++)
         {
-            Debug.Log("Star Number: " + i);
+            //Debug.Log("Star Number: " + i);
 
             xPosition = random.randomNumberGenerator((float)-1.4, (float)1.4);
             zPosition = random.randomNumberGenerator(zMin, zMin + 200);
 
             Instantiate(star, new Vector3(xPosition, (float)0.4, zPosition), Quaternion.identity);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag.Equals("Path"))
-        {
-            Debug.Log("Path destroyed");
         }
     }
 }

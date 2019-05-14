@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1798106774334616842}
   - component: {fileID: 1798106774334616841}
   - component: {fileID: 6589075946928421593}
+  - component: {fileID: 419402960418055109}
   m_Layer: 0
   m_Name: Path
   m_TagString: Path
@@ -106,3 +107,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectTag: LavaRock
   hole: {fileID: 3294983324725500956, guid: 1b051eb89a5115f4cb44f89c14116afc, type: 3}
+--- !u!54 &419402960418055109
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798106774334616847}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
