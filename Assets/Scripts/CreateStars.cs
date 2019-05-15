@@ -24,16 +24,9 @@ public class CreateStars : MonoBehaviour
         Points.currentStars = Points.currentStars + createdStars;
     }
 
-    public bool starLimitation()
+    public void createLastStars()
     {
-        if(Points.currentStars <= Points.totalPoints - 6)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        //Instantiate(star, new Vector3(xPosition, (float)0.4, zPosition), Quaternion.identity);
+        Debug.Log("last stars");
     }
-
 }

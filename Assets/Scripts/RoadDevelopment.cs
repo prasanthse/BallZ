@@ -23,9 +23,14 @@ public class RoadDevelopment : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform.position.z > (200*NumberOfPaths.pathsCreated - 50) && playerTransform.position.z < ((200 * NumberOfPaths.pathsCreated - 50) + 1) && !PlayerDead.isDead) //New path added when the player reached the 3/4 (150) of length of it's current path
+        if (playerTransform.position.z > (200*NumberOfPaths.pathsCreated - 50) && playerTransform.position.z < ((200 * NumberOfPaths.pathsCreated - 50) + 1) && !PlayerDead.isDead && !Win.playerWin) //New path added when the player reached the 3/4 (150) of length of it's current path
         {
             ChangeShapes();
+        }
+
+        if (Win.playerWin)
+        {
+            createLastPath();
         }
     }
 
@@ -34,5 +39,11 @@ public class RoadDevelopment : MonoBehaviour
         selectedPath = random.randomNumberGenerator(0, numberOfPaths);
         Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * NumberOfPaths.pathsCreated + 98)), Quaternion.identity);
         NumberOfPaths.calculatePathCount();
+    }
+
+    private void createLastPath()
+    {
+        //Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * NumberOfPaths.pathsCreated + 98)), Quaternion.identity);
+        Debug.Log("last Path");
     }
 }

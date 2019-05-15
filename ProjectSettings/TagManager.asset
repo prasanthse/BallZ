@@ -18,6 +18,7 @@ TagManager:
   - Life3
   - Life4
   - Life5
+  - LastPath
   layers:
   - Default
   - TransparentFX

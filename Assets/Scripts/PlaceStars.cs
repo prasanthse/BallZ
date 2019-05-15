@@ -19,9 +19,14 @@ public class PlaceStars : MonoBehaviour
 
     void Update()
     {
-        if(playerTransform.position.z >= 200 && !PlayerDead.isDead)
+        if(playerTransform.position.z >= 200 && !PlayerDead.isDead && !Win.playerWin)
         {
             getStars();
+        }
+
+        if (Win.playerWin)
+        {
+            lastStars();
         }
     }
 
@@ -48,5 +53,10 @@ public class PlaceStars : MonoBehaviour
 
             Instantiate(star, new Vector3(xPosition, (float)0.4, zPosition), Quaternion.identity);
         }
+    }
+
+    private void lastStars()
+    {
+        createStars.createLastStars();
     }
 }
