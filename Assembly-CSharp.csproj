@@ -75,8 +75,10 @@
     <Compile Include="Assets\Scripts\LevelSelection.cs" />
     <Compile Include="Assets\Scripts\Life.cs" />
     <Compile Include="Assets\Scripts\Mute.cs" />
+    <Compile Include="Assets\Scripts\NumberOfPaths.cs" />
     <Compile Include="Assets\Scripts\OnTrigger.cs" />
     <Compile Include="Assets\Scripts\PathDestroy.cs" />
+    <Compile Include="Assets\Scripts\PlaceStars.cs" />
     <Compile Include="Assets\Scripts\PlayAudioClip.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerDead.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Assets\Scripts\Random.cs" />
     <Compile Include="Assets\Scripts\RoadDevelopment.cs" />
     <Compile Include="Assets\Scripts\SceneChange.cs" />
+    <Compile Include="Assets\Scripts\ScoreColor.cs" />
     <Compile Include="Assets\Scripts\StarSpin.cs" />
     <None Include="Assets\CustomAssets\SkySerie Freebie\Hdri setup.txt" />
     <Reference Include="Unity.RenderPipelines.Core.Editor">

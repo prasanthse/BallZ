@@ -304,11 +304,11 @@ GameObject:
   - component: {fileID: 194770309}
   - component: {fileID: 194770310}
   - component: {fileID: 194770308}
-  - component: {fileID: 194770311}
   - component: {fileID: 194770312}
   - component: {fileID: 194770313}
   - component: {fileID: 194770314}
   - component: {fileID: 194770315}
+  - component: {fileID: 194770311}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -413,7 +413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba7c18db9e51ed4886810d9e7c4953a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathCollider: {fileID: 194770311}
   playerTransform: {fileID: 2042983983}
   path1: {fileID: 1798106774334616847, guid: 2d273b0191a45b542a36be8f91897e84, type: 3}
   path2: {fileID: 1798106774334616847, guid: 2d273b0191a45b542a36be8f91897e84, type: 3}
@@ -503,19 +502,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462728294f2b701439504532f4f7f7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &194770311
-BoxCollider:
+--- !u!114 &194770311
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194770298}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.94, y: 1, z: 1}
-  m_Center: {x: 0, y: -0.9, z: -4.97}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b9c98bd5b49254984e584f08890bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 2042983983}
+  star: {fileID: 6222713579760649786, guid: 007f034d6da42b34d9b3c58f2456f20b, type: 3}
 --- !u!114 &194770312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2005,6 +2005,7 @@ GameObject:
   - component: {fileID: 2045047321}
   - component: {fileID: 2045047323}
   - component: {fileID: 2045047322}
+  - component: {fileID: 2045047324}
   m_Layer: 5
   m_Name: StarsCountText
   m_TagString: Untagged
@@ -2076,6 +2077,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045047320}
   m_CullTransparentMesh: 0
+--- !u!114 &2045047324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045047320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b9321e0fae5cb4db13d6b815c9f747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 2045047322}
 --- !u!1 &2120246196
 GameObject:
   m_ObjectHideFlags: 0

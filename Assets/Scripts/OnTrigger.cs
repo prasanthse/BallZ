@@ -31,7 +31,7 @@ public class OnTrigger : MonoBehaviour
 
     private void setCountToText()
     {
-        StarCountText.text = "Score:  " + Points.playerPoints.ToString();
+        StarCountText.text = "Score:  " + Points.playerPoints.ToString() + " %";
     }
 
     private void playSoundClip()

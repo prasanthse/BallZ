@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class RoadDevelopment : MonoBehaviour
 {
-    public BoxCollider pathCollider;
     public Transform playerTransform;
     public GameObject path1, path2, star;
     private GameObject[] pathTypes;
     private int numberOfPaths = 2;
     private Random random;
-    private CreateStars createStars;
     private static float selectedPath;
-    private int pathsCreated;
-    private bool deletePath;
-
-    private float x = 0;
-    private float y = (float)-0.9;
-    private float z;
 
     void Start()
     {
@@ -27,18 +19,11 @@ public class RoadDevelopment : MonoBehaviour
         pathTypes[1] = path2;
 
         random = new Random();
-        createStars = new CreateStars(random);
-
-        pathsCreated = 1;
-        deletePath = false;
     }
 
     void Update()
     {
-        z = playerTransform.position.z - 210;
-        pathCollider.center = new Vector3(x, y, z);
-
-        if (playerTransform.position.z > (200*pathsCreated - 50) && playerTransform.position.z < ((200 * pathsCreated - 50) + 1) && !PlayerDead.isDead) //New path added when the player reached the 3/4 (150) of length of it's current path
+        if (playerTransform.position.z > (200*NumberOfPaths.pathsCreated - 50) && playerTransform.position.z < ((200 * NumberOfPaths.pathsCreated - 50) + 1) && !PlayerDead.isDead) //New path added when the player reached the 3/4 (150) of length of it's current path
         {
             ChangeShapes();
         }
@@ -47,28 +32,7 @@ public class RoadDevelopment : MonoBehaviour
     private void ChangeShapes()
     {
         selectedPath = random.randomNumberGenerator(0, numberOfPaths);
-        Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * pathsCreated + 98)), Quaternion.identity);
-        pathsCreated += 1;
-
-        placeStars();
-    }
-
-    private void placeStars()
-    {
-        //Debug.Log("Number of stars: " + createStars.createRandomStars());
-
-        float xPosition = 0;
-        float zPosition = 0;
-        float zMin = 200 * (pathsCreated - 1);
-
-        for (int i = 0; i < createStars.createRandomStars(); i++)
-        {
-            //Debug.Log("Star Number: " + i);
-
-            xPosition = random.randomNumberGenerator((float)-1.4, (float)1.4);
-            zPosition = random.randomNumberGenerator(zMin, zMin + 200);
-
-            Instantiate(star, new Vector3(xPosition, (float)0.4, zPosition), Quaternion.identity);
-        }
+        Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * NumberOfPaths.pathsCreated + 98)), Quaternion.identity);
+        NumberOfPaths.calculatePathCount();
     }
 }

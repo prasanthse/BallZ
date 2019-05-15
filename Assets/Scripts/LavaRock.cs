@@ -52,7 +52,6 @@ public class LavaRock : MonoBehaviour
         if(currentTime >= timeBetweenLavaRocks)
         {
             currentTime = 0;
-            //Instantiate(lavaRock, new Vector3((int)random.randomNumberGenerator(-Screen.width / 2, Screen.width / 2), (int)random.randomNumberGenerator(10, 50), (int)random.randomNumberGenerator(player.position.z, player.position.z + 200)), Quaternion.identity);
             Instantiate(lavaRock, new Vector3((int)random.randomNumberGenerator(-Screen.width / 2, Screen.width / 2), (int)random.randomNumberGenerator(25, 50), (int)random.randomNumberGenerator(player.position.z, player.position.z + 200)), Quaternion.identity);
         }
     }
