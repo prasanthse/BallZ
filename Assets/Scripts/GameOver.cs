@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-    public Text win, lost, total, playerPoints, youWin;
+    public Text win, lost, total, playerPoints, youWin, highestPoints;
     public Button decision, exit;
     public float time;
     public static bool winTextDisplay;
@@ -42,6 +42,9 @@ public class GameOver : MonoBehaviour
                 winTextDisplay = false;
                 youWin.GetComponent<Text>().enabled = false;
             }
+
+            setTitleText(false, true);
+            setButtonText("Next");
         }
     }
 
@@ -63,17 +66,21 @@ public class GameOver : MonoBehaviour
 
         if (decisionWord.Equals("Retry"))
         {
-            Debug.Log("retry");
-            //SceneManager.LoadScene(5);
+            decision.onClick.AddListener(retry);
         }
-        else if (decisionWord.Equals("next"))
+        else if (decisionWord.Equals("Next"))
         {
-            SceneManager.LoadScene(4);
+            decision.onClick.AddListener(changeScene);
         }
     }
 
     private void changeScene()
     {
         SceneManager.LoadScene(4);
+    }
+
+    private void retry()
+    {
+        SceneManager.LoadScene(5);
     }
 }

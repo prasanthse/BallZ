@@ -8,7 +8,7 @@ public class Win : MonoBehaviour
 
     void Start()
     {
-        
+        playerWin = false;
     }
 
     void Update()
@@ -30,6 +30,7 @@ public class Win : MonoBehaviour
                 OnTrigger.bravo = true;
                 PlaceStars.starPlacement = true;
                 EndLevel.endLevel = true;
+                ScoreColor.scoreColor = true;
             }   
         }
     }

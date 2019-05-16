@@ -8,18 +8,22 @@ public class PlayerController : MonoBehaviour
     public Text counting;
     public float time;
     public float speed;
-    public static bool isDead;
     public AudioSource holeSound;
     public GameObject gameOver;
     private Rigidbody rigid;
     private bool movement;
     private Life life;
+    private Camera gameView;
 
     void Start()
     {
-        isDead = false;
         Win.playerWin = false;
         EndLevel.endLevel = false;
+        GameOver.winTextDisplay = false;
+        OnTrigger.bravo = false;
+        ScoreColor.scoreColor = false;
+        NumberOfPaths.pathsCreated = 1;
+        PlayerDead.isDead = false;
 
         rigid = GetComponent<Rigidbody>();
         rigid.isKinematic = true;
@@ -30,6 +34,8 @@ public class PlayerController : MonoBehaviour
         life = new Life();
 
         gameOver.SetActive(false);
+
+        gameView = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void Update()

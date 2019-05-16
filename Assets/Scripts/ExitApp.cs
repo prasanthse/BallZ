@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ExitApp : MonoBehaviour
 {
     public GameObject exitWindow;
-    public bool mainMenu = false, game = false;
+    public bool mainMenu, game;
     private Button yes, no;
 
     void Start()
@@ -16,6 +16,9 @@ public class ExitApp : MonoBehaviour
         no = GameObject.FindGameObjectWithTag("NoQuit").GetComponent<Button>();
 
         exitWindow.SetActive(false);
+
+        mainMenu = false;
+        game = false;
     }
 
     void Update()
