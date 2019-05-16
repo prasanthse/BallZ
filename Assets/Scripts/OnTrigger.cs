@@ -7,6 +7,7 @@ public class OnTrigger : MonoBehaviour
 {
     public Text StarCountText;
     public AudioSource soundClip;
+    public static bool bravo;
 
     void Start()
     {
@@ -15,6 +16,8 @@ public class OnTrigger : MonoBehaviour
 
         Points.playerPoints = 0;
         setCountToText();
+
+        bravo = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +34,14 @@ public class OnTrigger : MonoBehaviour
 
     private void setCountToText()
     {
-        StarCountText.text = "Score:  " + Points.playerPoints.ToString() + " %";
+        if (bravo)
+        {
+            StarCountText.text = "Bravo!!!";
+        }
+        else
+        {
+            StarCountText.text = "Score:  " + Points.playerPoints.ToString() + " %";
+        }
     }
 
     private void playSoundClip()

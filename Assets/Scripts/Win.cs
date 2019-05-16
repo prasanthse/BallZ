@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Win : MonoBehaviour
 {
-    public static bool playerWin = false;
-    
+    public static bool playerWin;
+
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
         if (!PlayerDead.isDead)
@@ -21,13 +26,17 @@ public class Win : MonoBehaviour
             if(Points.playerPoints >= Points.totalPoints * 0.9)
             {
                 playerWin = true;
+                GameOver.winTextDisplay = true;
+                OnTrigger.bravo = true;
+                PlaceStars.starPlacement = true;
+                EndLevel.endLevel = true;
             }   
         }
     }
 
     public bool GeneratedAllTotalStars()
     {
-        if (Points.currentStars == 100)
+        if (Points.currentStars >= Points.totalPoints)
         {
             return true;
         }

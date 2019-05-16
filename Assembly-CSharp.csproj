@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\CrckedHole.cs" />
     <Compile Include="Assets\Scripts\CreateStars.cs" />
     <Compile Include="Assets\Scripts\DestroyObject.cs" />
+    <Compile Include="Assets\Scripts\EndLevel.cs" />
     <Compile Include="Assets\Scripts\ExitApp.cs" />
     <Compile Include="Assets\Scripts\FixedGroundCollider.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />

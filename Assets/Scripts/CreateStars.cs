@@ -15,18 +15,12 @@ public class CreateStars : MonoBehaviour
     public int createRandomStars()
     {
         createdStars = (int)random.randomNumberGenerator(1, 6);
-        calculateTotalStars();
+        calculateTotalStars(); 
         return createdStars;
     }
 
     private void calculateTotalStars()
     {
         Points.currentStars = Points.currentStars + createdStars;
-    }
-
-    public void createLastStars()
-    {
-        //Instantiate(star, new Vector3(xPosition, (float)0.4, zPosition), Quaternion.identity);
-        Debug.Log("last stars");
     }
 }

@@ -10,30 +10,33 @@ public class PlaceStars : MonoBehaviour
     private Random random;
     private float currentTime = 0;
     private float timeBetweenStars = 5;
+    public static bool starPlacement;
 
     void Start()
     {
         random = new Random();
         createStars = new CreateStars(random);
+
+        starPlacement = false;
     }
 
     void Update()
     {
-        if(playerTransform.position.z >= 200 && !PlayerDead.isDead && !Win.playerWin)
+        if(!PlayerDead.isDead && !Win.playerWin && !EndLevel.endLevel)
         {
             getStars();
         }
 
-        if (Win.playerWin)
+        if (starPlacement)
         {
-            lastStars();
+            createLastStars();
         }
     }
 
     private void getStars()
     {
-        if (playerTransform.position.z > (200 * NumberOfPaths.pathsCreated - 50) && playerTransform.position.z < ((200 * NumberOfPaths.pathsCreated - 50) + 1))
-        {
+        if (playerTransform.position.z > (200 * (NumberOfPaths.pathsCreated - 1) - 40) && playerTransform.position.z < ((200 * (NumberOfPaths.pathsCreated - 1) - 40) + 1)) //New set of stars added when the player reached 160 of length of it's current path
+        { 
             placeStars();
         }
     }
@@ -49,14 +52,29 @@ public class PlaceStars : MonoBehaviour
         for (int i = 0; i < starsGenerated; i++)
         {
             xPosition = random.randomNumberGenerator((float)-1.4, (float)1.4);
-            zPosition = random.randomNumberGenerator(zMin + 50, zMin + 200);
+            zPosition = random.randomNumberGenerator(zMin + 40, zMin + 200);
 
             Instantiate(star, new Vector3(xPosition, (float)0.4, zPosition), Quaternion.identity);
         }
     }
 
-    private void lastStars()
+    private void createLastStars()
     {
-        createStars.createLastStars();
+        float x = (float)-0.75;
+        int z = (NumberOfPaths.pathsCreated * 200) + 50;
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Instantiate(star, new Vector3(x, (float)0.4, z), Quaternion.identity);
+                x = x + (float)0.75;
+            }
+
+            x = (float)-0.75;
+            z = z + 10;
+        }
+
+        PlaceStars.starPlacement = false;
     }
 }

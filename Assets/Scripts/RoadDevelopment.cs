@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoadDevelopment : MonoBehaviour
 {
     public Transform playerTransform;
-    public GameObject path1, path2, star;
+    public GameObject path1, path2, star, lastPath;
     private GameObject[] pathTypes;
     private int numberOfPaths = 2;
     private Random random;
@@ -23,7 +23,7 @@ public class RoadDevelopment : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform.position.z > (200*NumberOfPaths.pathsCreated - 50) && playerTransform.position.z < ((200 * NumberOfPaths.pathsCreated - 50) + 1) && !PlayerDead.isDead && !Win.playerWin) //New path added when the player reached the 3/4 (150) of length of it's current path
+        if (playerTransform.position.z > (200*NumberOfPaths.pathsCreated - 50) && playerTransform.position.z < ((200 * NumberOfPaths.pathsCreated - 50) + 1) && !PlayerDead.isDead && !Win.playerWin && !EndLevel.endLevel) //New path added when the player reached the 3/4 (150) of length of it's current path
         {
             ChangeShapes();
         }
@@ -43,7 +43,15 @@ public class RoadDevelopment : MonoBehaviour
 
     private void createLastPath()
     {
-        //Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * NumberOfPaths.pathsCreated + 98)), Quaternion.identity);
-        Debug.Log("last Path");
+        Instantiate(lastPath, new Vector3(0, 0, calculateLastPathZPositon()), Quaternion.identity);
+        Win.playerWin = false;
+        Points.playerPoints = 0;
+        Points.currentStars = 0;
+    }
+
+    private int calculateLastPathZPositon()
+    {
+        int z = (NumberOfPaths.pathsCreated * 200) + 98;
+        return z;
     }
 }

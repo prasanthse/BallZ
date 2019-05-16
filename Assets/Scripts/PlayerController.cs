@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         isDead = false;
+        Win.playerWin = false;
+        EndLevel.endLevel = false;
 
         rigid = GetComponent<Rigidbody>();
         rigid.isKinematic = true;

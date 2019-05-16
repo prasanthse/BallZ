@@ -6,15 +6,19 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-    public Text win, lost, total, playerPoints;
+    public Text win, lost, total, playerPoints, youWin;
     public Button decision, exit;
+    public float time;
+    public static bool winTextDisplay;
 
     private void Start()
     {
+        youWin.GetComponent<Text>().enabled = false;
         setTitleText(false, false);
         setPoints();
         exit.onClick.AddListener(changeScene);
         setButtonText("Retry");
+        winTextDisplay = false;
     }
 
     void Update()
@@ -24,7 +28,21 @@ public class GameOver : MonoBehaviour
         if (PlayerDead.isDead)
         {
             setTitleText(true, false);
-        }    
+        }
+
+        if (winTextDisplay)
+        {
+            if (time >= 0)
+            {
+                time = time - Time.deltaTime;
+                youWin.GetComponent<Text>().enabled = true;
+            }
+            else
+            {
+                winTextDisplay = false;
+                youWin.GetComponent<Text>().enabled = false;
+            }
+        }
     }
 
     private void setPoints()
