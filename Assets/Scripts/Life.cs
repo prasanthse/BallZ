@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +35,7 @@ public class Life : MonoBehaviour
     {
         if (playerLife > 0)
         {
+            getCurrentTime();
             playerLife -= 1;
             ChangeLifeLogo();
         }
@@ -89,5 +91,18 @@ public class Life : MonoBehaviour
                 Debug.Log("Error in life logo changing");
                 break;
         }
+    }
+
+    private void getCurrentTime()
+    {
+        Debug.Log(System.DateTime.Now);
+        //Debug.Log(System.DateTime.Now.Year);
+        //Debug.Log(System.DateTime.Now.Month);
+        //Debug.Log(System.DateTime.Now.Day);
+        //Debug.Log(System.DateTime.Now.Hour);
+        //Debug.Log(System.DateTime.Now.Minute);
+        //Debug.Log(System.DateTime.Now.Second);
+        DateTime date = DateTime.Now;
+        Debug.Log(date);
     }
 }

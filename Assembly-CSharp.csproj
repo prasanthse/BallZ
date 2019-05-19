@@ -61,6 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Database\Scripts\Create.cs" />
+    <Compile Include="Assets\Database\Scripts\Insert.cs" />
+    <Compile Include="Assets\Database\Scripts\Retrieve.cs" />
     <Compile Include="Assets\Scripts\AutoSceneChange.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\ConnectSocialMedias.cs" />
@@ -327,6 +330,12 @@
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>C:/Users/prasanth/Desktop/MobileGame/BallZ/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:/Users/prasanth/Desktop/MobileGame/BallZ/Assets/Plugins/System.Data.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/prasanth/Desktop/MobileGame/BallZ/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
