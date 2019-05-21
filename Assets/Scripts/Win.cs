@@ -31,6 +31,7 @@ public class Win : MonoBehaviour
                 PlaceStars.starPlacement = true;
                 EndLevel.endLevel = true;
                 ScoreColor.scoreColor = true;
+                HighScore.highScoreChecking = true;
             }   
         }
     }

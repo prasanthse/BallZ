@@ -9,7 +9,7 @@ public class Retrieve : MonoBehaviour
     private IDbConnection dbcon;
     private Create dbCreate;
 
-    void Start()
+    public Retrieve()
     {
         dbCreate = new Create();
         dbcon = dbCreate.getConnection();
@@ -33,8 +33,6 @@ public class Retrieve : MonoBehaviour
             Debug.Log("life4: " + reader[1].ToString());
             Debug.Log("life5: " + reader[1].ToString());
         }
-
-        dbcon.Close();
     }
 
     public string getHighScore()
@@ -42,13 +40,11 @@ public class Retrieve : MonoBehaviour
         IDbCommand cmnd_read = dbcon.CreateCommand();
         IDataReader reader;
 
-        string query = "SELECT highest FROM high_score where id = 'player1'";
+        string query = "SELECT highest FROM high_score where id = 'level1'";
         cmnd_read.CommandText = query;
         reader = cmnd_read.ExecuteReader();
 
         string score = reader[0].ToString();
-
-        dbcon.Close();
 
         return score;
     }

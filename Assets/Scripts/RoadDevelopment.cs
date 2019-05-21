@@ -59,6 +59,9 @@ public class RoadDevelopment : MonoBehaviour
         Instantiate(lastPath, new Vector3(0, 0, lastPathPosition), Quaternion.identity);
 
         Win.playerWin = false;
+
+        HighScore.playerWinScore = Points.playerPoints;
+
         Points.playerPoints = 0;
         Points.currentStars = 0;
     }

@@ -10,18 +10,11 @@ public class UpdateScore : MonoBehaviour
     private IDbConnection dbcon;
     private Create dbCreate;
 
-    void Start()
+    public UpdateScore()
     {
-        try
-        {
-            dbCreate = new Create();
-            dbcon = dbCreate.getConnection();
-            dbcon.Open();
-        }
-        catch (Exception ex)
-        {
-            Debug.Log(ex);
-        }
+        dbCreate = new Create();
+        dbcon = dbCreate.getConnection();
+        dbcon.Open();
     }
 
     public void updateHighScore(int number)

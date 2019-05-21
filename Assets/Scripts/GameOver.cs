@@ -10,6 +10,7 @@ public class GameOver : MonoBehaviour
     public Button decision, exit;
     public float time;
     public static bool winTextDisplay;
+    private Retrieve retrieve;
 
     private void Start()
     {
@@ -19,6 +20,9 @@ public class GameOver : MonoBehaviour
         exit.onClick.AddListener(changeScene);
         setButtonText("Retry");
         winTextDisplay = false;
+
+        retrieve = new Retrieve();
+        highestPoints.text = retrieve.getHighScore();
     }
 
     void Update()

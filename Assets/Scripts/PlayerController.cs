@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
         ScoreColor.scoreColor = false;
         NumberOfPaths.pathsCreated = 1;
         PlayerDead.isDead = false;
+        HighScore.highScoreChecking = false;
         slowMotion = false;
 
         rigid = GetComponent<Rigidbody>();

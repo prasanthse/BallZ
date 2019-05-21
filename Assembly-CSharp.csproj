@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\FixedGroundCollider.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\GroundCollider.cs" />
+    <Compile Include="Assets\Scripts\HighScore.cs" />
     <Compile Include="Assets\Scripts\LavaRock.cs" />
     <Compile Include="Assets\Scripts\LevelSelection.cs" />
     <Compile Include="Assets\Scripts\Life.cs" />
