@@ -10,6 +10,7 @@ public class RoadDevelopment : MonoBehaviour
     private int numberOfPaths = 2;
     private Random random;
     private static float selectedPath;
+    private int lastPathPosition;
 
     void Start()
     {
@@ -19,6 +20,8 @@ public class RoadDevelopment : MonoBehaviour
         pathTypes[1] = path2;
 
         random = new Random();
+
+        lastPathPosition = 0;
     }
 
     void Update()
@@ -32,6 +35,14 @@ public class RoadDevelopment : MonoBehaviour
         {
             createLastPath();
         }
+
+        if (lastPathPosition != 0)
+        {
+            if (playerTransform.position.z > lastPathPosition + 50)
+            {
+                PlayerController.slowMotion = true;
+            }
+        }
     }
 
     private void ChangeShapes()
@@ -43,7 +54,10 @@ public class RoadDevelopment : MonoBehaviour
 
     private void createLastPath()
     {
-        Instantiate(lastPath, new Vector3(0, 0, calculateLastPathZPositon()), Quaternion.identity);
+        lastPathPosition = calculateLastPathZPositon();
+
+        Instantiate(lastPath, new Vector3(0, 0, lastPathPosition), Quaternion.identity);
+
         Win.playerWin = false;
         Points.playerPoints = 0;
         Points.currentStars = 0;

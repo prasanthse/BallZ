@@ -28,23 +28,19 @@ public class Insert : MonoBehaviour
     {
         IDbCommand cmnd = dbcon.CreateCommand();
 
-        cmnd.CommandText = "INSERT INTO high_score (id, highest) VALUES ('player3', 15)";        
+        cmnd.CommandText = "INSERT INTO high_score (id, highest) VALUES ('level1', 0)";        
         cmnd.ExecuteNonQuery();
-        Debug.Log("added");
 
         dbcon.Close();
-        Debug.Log("closed");
     }
 
     public void insertLifeInfo()
     {
         IDbCommand cmnd = dbcon.CreateCommand();
 
-        cmnd.CommandText = "INSERT INTO life (id, life_one, life_two, life_three, life_four, life_five) VALUES ('player1', 5, 5, 5, 5, 5)";
+        cmnd.CommandText = "INSERT INTO life (id, life_one, life_two, life_three, life_four, life_five) VALUES ('level1', null, null, null, null, null)";
         cmnd.ExecuteNonQuery();
-        Debug.Log("added");
 
         dbcon.Close();
-        Debug.Log("closed");
     }
 }

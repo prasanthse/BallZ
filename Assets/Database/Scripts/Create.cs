@@ -32,7 +32,7 @@ public class Create : MonoBehaviour
 
     public IDbConnection getConnection()
     {
-        string connection = "URI=file:" + Application.persistentDataPath + "/Database/BallZ.s3db";
+        string connection = "URI=file:" + Application.persistentDataPath + "/BallZ.s3db";
         Debug.Log(connection);
         IDbConnection con = new SqliteConnection(connection);
         return con;
@@ -50,7 +50,7 @@ public class Create : MonoBehaviour
     public void createLifeTable()
     {
         dbcmd = dbcon.CreateCommand();
-        string q_createTable = "CREATE TABLE IF NOT EXISTS life (id INTEGER PRIMARY KEY, life_one TEXT, life_two TEXT, life_three TEXT, life_four TEXT, life_five TEXT)";
+        string q_createTable = "CREATE TABLE IF NOT EXISTS life (id TEXT PRIMARY KEY, life_one TIME, life_two TIME, life_three TIME, life_four TIME, life_five TIME)";
 
         dbcmd.CommandText = q_createTable;
         reader = dbcmd.ExecuteReader();

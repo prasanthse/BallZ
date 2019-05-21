@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (!PlayerDead.isDead)
+        if (!PlayerDead.isDead && !PlayerController.slowMotion)
         {
             transform.position = player.transform.position + offset;
         }

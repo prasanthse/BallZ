@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool movement;
     private Life life;
     private Camera gameView;
+    public static bool slowMotion;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         ScoreColor.scoreColor = false;
         NumberOfPaths.pathsCreated = 1;
         PlayerDead.isDead = false;
+        slowMotion = false;
 
         rigid = GetComponent<Rigidbody>();
         rigid.isKinematic = true;
@@ -57,6 +59,11 @@ public class PlayerController : MonoBehaviour
             if (PlayerDead.isDead && movement)
             {
                 SetPlayerDead();
+            }
+
+            if (slowMotion)
+            {
+                createSlowMotionEffect();
             }
         }
     }
@@ -95,5 +102,20 @@ public class PlayerController : MonoBehaviour
         life.decreaseLife();
 
         gameOver.SetActive(true);
+    }
+
+    float timer = 5;
+
+    private void createSlowMotionEffect()
+    {
+        if (timer >= 0)
+        {
+            timer = timer - Time.deltaTime;
+            //Time.timeScale = (float)0.5;
+        }
+        else
+        {
+            movement = false;
+        }
     }
 }
