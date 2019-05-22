@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
         NumberOfPaths.pathsCreated = 1;
         PlayerDead.isDead = false;
         HighScore.highScoreChecking = false;
+        LevelSelection.nextLevel = false;
         slowMotion = false;
 
         rigid = GetComponent<Rigidbody>();
@@ -116,6 +117,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            gameOver.SetActive(true);
             movement = false;
         }
     }

@@ -17,7 +17,7 @@ public class GameOver : MonoBehaviour
         youWin.GetComponent<Text>().enabled = false;
         setTitleText(false, false);
         setPoints();
-        exit.onClick.AddListener(changeScene);
+        exit.onClick.AddListener(changeSceneToMenu);
         setButtonText("Retry");
         winTextDisplay = false;
 
@@ -55,7 +55,15 @@ public class GameOver : MonoBehaviour
     private void setPoints()
     {
         total.text = Points.totalPoints.ToString();
-        playerPoints.text = Points.playerPoints.ToString();
+
+        if (HighScore.highScoreChecking)
+        {
+            playerPoints.text = HighScore.playerWinScore.ToString();
+        }
+        else
+        {
+            playerPoints.text = Points.playerPoints.ToString();
+        }
     }
 
     private void setTitleText(bool lostText, bool winText)
@@ -74,11 +82,17 @@ public class GameOver : MonoBehaviour
         }
         else if (decisionWord.Equals("Next"))
         {
-            decision.onClick.AddListener(changeScene);
+            LevelSelection.nextLevel = true;
+            decision.onClick.AddListener(changeSceneNext);
         }
     }
 
-    private void changeScene()
+    private void changeSceneToMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    private void changeSceneNext()
     {
         SceneManager.LoadScene(4);
     }

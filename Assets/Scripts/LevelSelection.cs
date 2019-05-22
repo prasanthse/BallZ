@@ -12,6 +12,7 @@ public class LevelSelection : MonoBehaviour
     private Button next, previous;
     private int levelNumber;
     public bool locked = true;
+    public static bool nextLevel;
     
     void Start()
     {
@@ -26,11 +27,17 @@ public class LevelSelection : MonoBehaviour
 
         next.onClick.AddListener(nextButton);
         previous.onClick.AddListener(previousButton);
+
+        nextLevel = true;
     }
 
     void Update()
     {
-        
+        if (nextLevel)
+        {
+            nextButton();
+            applyAnimation();
+        }
     }
 
     private void nextButton()
@@ -99,11 +106,12 @@ public class LevelSelection : MonoBehaviour
 
     private void applyAnimation()
     {
-        for (float timer = 0; timer < 5; timer += Time.deltaTime)
+        padlockTop.transform.Translate(new Vector3(0, 33, 0) * unlockSpeed);
+       
+        if(padlockTop.transform.position.y > 35)
         {
-            padlockTop.transform.Translate(new Vector3(0, 5, 0) * unlockSpeed);
+            padlockAppearance(false, false);
         }
-        padlockAppearance(false, false);
     }
 
     private void padlockAppearance(bool body, bool top)
