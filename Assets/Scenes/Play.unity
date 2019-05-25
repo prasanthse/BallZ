@@ -1355,8 +1355,7 @@ MonoBehaviour:
   levelFrame: {fileID: 1636844183}
   padlockBody: {fileID: 468115448}
   padlockTop: {fileID: 1702879810}
-  unlockSpeed: 0.005
-  locked: 1
+  unlockSpeed: 0.001
 --- !u!1 &1494284609
 GameObject:
   m_ObjectHideFlags: 0

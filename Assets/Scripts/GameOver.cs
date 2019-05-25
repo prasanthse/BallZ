@@ -12,13 +12,18 @@ public class GameOver : MonoBehaviour
     public static bool winTextDisplay;
     private Retrieve retrieve;
 
-    private void Start()
+    void Start()
     {
         youWin.GetComponent<Text>().enabled = false;
         setTitleText(false, false);
+
         setPoints();
+
         exit.onClick.AddListener(changeSceneToMenu);
-        setButtonText("Retry");
+
+        setButton("Retry");
+        decision.onClick.AddListener(retry);
+
         winTextDisplay = false;
 
         retrieve = new Retrieve();
@@ -48,7 +53,7 @@ public class GameOver : MonoBehaviour
             }
 
             setTitleText(false, true);
-            setButtonText("Next");
+            setButton("Next");
         }
     }
 
@@ -72,7 +77,7 @@ public class GameOver : MonoBehaviour
         win.GetComponent<Text>().enabled = winText;
     }
 
-    private void setButtonText(string decisionWord)
+    private void setButton(string decisionWord)
     {
         decision.GetComponentInChildren<Text>().text = decisionWord;
 
@@ -82,11 +87,11 @@ public class GameOver : MonoBehaviour
         }
         else if (decisionWord.Equals("Next"))
         {
-            LevelSelection.nextLevel = true;
+            LevelSelection.locked = false;
             decision.onClick.AddListener(changeSceneNext);
         }
     }
-
+    
     private void changeSceneToMenu()
     {
         SceneManager.LoadScene(1);

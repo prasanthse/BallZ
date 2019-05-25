@@ -10,9 +10,8 @@ public class LevelSelection : MonoBehaviour
     public Image padlockBody, padlockTop;
     public float unlockSpeed;
     private Button next, previous;
-    private int levelNumber;
-    public bool locked = true;
-    public static bool nextLevel;
+    private int levelNumber = 1;
+    public static bool locked = true;
     
     void Start()
     {
@@ -21,22 +20,28 @@ public class LevelSelection : MonoBehaviour
         next = GameObject.FindGameObjectWithTag("LevelNext").GetComponent<Button>();
         previous = GameObject.FindGameObjectWithTag("LevelPrevious").GetComponent<Button>();
 
-        levelNumber = 1;
-
         disableButton();
 
         next.onClick.AddListener(nextButton);
         previous.onClick.AddListener(previousButton);
-
-        nextLevel = true;
     }
 
     void Update()
     {
-        if (nextLevel)
+        if (locked)
         {
-            nextButton();
-            applyAnimation();
+            if(levelNumber == 1)
+            {
+                padlockAppearance(false, false);
+            }
+            else if(levelNumber == 2)
+            {
+                padlockAppearance(true, true);
+            }
+        }else
+        {
+            padlockAppearance(false, false);
+            levelFrame.interactable = true;
         }
     }
 
@@ -50,21 +55,32 @@ public class LevelSelection : MonoBehaviour
     private void previousButton()
     {
         levelNumber = 1;
+        locked = true;
         changeImage(levelOne);
         disableButton();
     }
 
     private void disableButton()
     {
-        if(levelNumber == 1)
+        if (locked)
         {
-            levelFrame.interactable = true;
-            previous.interactable = false;
-            next.interactable = true;
+            if (levelNumber == 1)
+            {
+                levelFrame.interactable = true;
+                previous.interactable = false;
+                next.interactable = true;
+            }
+            else if (levelNumber == 2)
+            {
+                levelFrame.interactable = false;
+                previous.interactable = true;
+                next.interactable = false;
+            }
         }
-        else if(levelNumber == 2)
+        else
         {
-            levelFrame.interactable = false;
+            levelNumber = 2;
+            changeImage(levelTwo);
             previous.interactable = true;
             next.interactable = false;
         }
@@ -72,46 +88,12 @@ public class LevelSelection : MonoBehaviour
 
     private void changeImage(Sprite levelImage)
     {
-
-        if(levelNumber == 1)
-        {
-            levelFrame.image.overrideSprite = levelImage;
-            padlockAppearance(false, false);
-        }
-        else if(levelNumber == 2)
-        {
-            if (locked)
-            {
-                padlockAppearance(true, true);
-                levelLock(levelImage);
-            }
-            else
-            {
-                levelUnLock(levelImage);
-            }
-        }
-    }
-
-    private void levelLock(Sprite original)
-    {
-        levelFrame.image.overrideSprite = original;
-    }
-
-    private void levelUnLock(Sprite original)
-    {
-        applyAnimation();
-        levelFrame.image.overrideSprite = original;
-        locked = false;
+        levelFrame.image.overrideSprite = levelImage;
     }
 
     private void applyAnimation()
-    {
-        padlockTop.transform.Translate(new Vector3(0, 33, 0) * unlockSpeed);
-       
-        if(padlockTop.transform.position.y > 35)
-        {
-            padlockAppearance(false, false);
-        }
+    { 
+        padlockTop.transform.Translate(new Vector3(0, unlockSpeed, 0));
     }
 
     private void padlockAppearance(bool body, bool top)

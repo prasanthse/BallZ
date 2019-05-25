@@ -18,16 +18,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Win.playerWin = false;
-        EndLevel.endLevel = false;
-        GameOver.winTextDisplay = false;
-        OnTrigger.bravo = false;
-        ScoreColor.scoreColor = false;
-        NumberOfPaths.pathsCreated = 1;
-        PlayerDead.isDead = false;
-        HighScore.highScoreChecking = false;
-        LevelSelection.nextLevel = false;
-        slowMotion = false;
+        SetVariableToDeafault();
 
         rigid = GetComponent<Rigidbody>();
         rigid.isKinematic = true;
@@ -106,7 +97,7 @@ public class PlayerController : MonoBehaviour
         gameOver.SetActive(true);
     }
 
-    float timer = 5;
+    float timer = 2;
 
     private void createSlowMotionEffect()
     {
@@ -120,5 +111,19 @@ public class PlayerController : MonoBehaviour
             gameOver.SetActive(true);
             movement = false;
         }
+    }
+
+    private void SetVariableToDeafault()
+    {
+        Win.playerWin = false;
+        EndLevel.endLevel = false;
+        GameOver.winTextDisplay = false;
+        OnTrigger.bravo = false;
+        ScoreColor.scoreColor = false;
+        NumberOfPaths.pathsCreated = 1;
+        PlayerDead.isDead = false;
+        HighScore.highScoreChecking = false;
+        LevelSelection.locked = true;
+        slowMotion = false;
     }
 }
