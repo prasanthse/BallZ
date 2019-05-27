@@ -9,11 +9,15 @@ public class Life : MonoBehaviour
     private Sprite lifeImage, lostImage;
     private Image life1, life2, life3, life4, life5;
     private static int playerLife = 5;
+    private Retrieve retrieve;
 
     public Life()
     {
         lifeImage = Resources.Load<Sprite>("Life");
         lostImage = Resources.Load<Sprite>("Out");
+
+        retrieve = new Retrieve();
+        retrieve.getLifeInfo();
 
         life1 = GameObject.FindWithTag("Life1").GetComponent<Image>();
         life2 = GameObject.FindWithTag("Life2").GetComponent<Image>();
@@ -95,7 +99,7 @@ public class Life : MonoBehaviour
 
     private void getCurrentTime()
     {
-        Debug.Log(System.DateTime.Now);
+        Debug.Log(DateTime.Now);
         //Debug.Log(System.DateTime.Now.Year);
         //Debug.Log(System.DateTime.Now.Month);
         //Debug.Log(System.DateTime.Now.Day);

@@ -27,11 +27,11 @@ public class Retrieve : MonoBehaviour
 
         while (reader.Read())
         {
-            Debug.Log("life1: " + reader[0].ToString());
-            Debug.Log("life2: " + reader[1].ToString());
-            Debug.Log("life3: " + reader[1].ToString());
-            Debug.Log("life4: " + reader[1].ToString());
-            Debug.Log("life5: " + reader[1].ToString());
+            Debug.Log("life1: " + reader[1].ToString());
+            Debug.Log("life2: " + reader[2].ToString());
+            Debug.Log("life3: " + reader[3].ToString());
+            Debug.Log("life4: " + reader[4].ToString());
+            Debug.Log("life5: " + reader[5].ToString());
         }
     }
 

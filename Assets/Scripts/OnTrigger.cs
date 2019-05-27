@@ -40,7 +40,7 @@ public class OnTrigger : MonoBehaviour
         }
         else
         {
-            StarCountText.text = "Score:  " + Points.playerPoints.ToString() + " %";
+            StarCountText.text = "Score:  " + Points.playerPoints.ToString();
         }
     }
 
