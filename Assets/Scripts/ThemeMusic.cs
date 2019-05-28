@@ -8,20 +8,34 @@ public class ThemeMusic : MonoBehaviour
     public static bool mute = false;
     public static int click = 0;
 
+    public static ThemeMusic instance = null;
+
     void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(bgm);
+        }
+
         DontDestroyOnLoad(bgm);
     }
 
     void Update()
     {
-        if (mute)
+        if (bgm != null)
         {
-            bgm.Pause();
-        }
-        else
-        {
-            bgm.UnPause();
+            if (mute)
+            {
+                bgm.Pause();
+            }
+            else
+            {
+                bgm.UnPause();
+            }
         }
     }
 }
