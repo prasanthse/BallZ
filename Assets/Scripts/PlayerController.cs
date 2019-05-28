@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(time >= 0)
+        if (time >= 0)
         {
             time = time - Time.deltaTime;
             counting.text = "" + (int)time;
@@ -85,7 +85,10 @@ public class PlayerController : MonoBehaviour
 
     private void SetPlayerDead()
     {
-        holeSound.Play();
+        if (!ThemeMusic.mute)
+        {
+            holeSound.Play();
+        }
 
         transform.Translate(PlayerDead.x, -1, PlayerDead.z);
         //transform.Rotate(0, 0, 0);

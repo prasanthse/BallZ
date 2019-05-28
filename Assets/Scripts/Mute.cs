@@ -7,27 +7,28 @@ public class Mute : MonoBehaviour
 {
     public Sprite soundImage, noSoundImage;
     public Button musicButton;
-    private int click;
 
     void Start()
     {
-        click = 0;
+        buttonImage();
     }
 
     public void changeMusicFactors()
     {
-        click = click + 1;
+        ThemeMusic.click = ThemeMusic.click + 1;
         buttonImage();
     }
 
     private void buttonImage()
     {
-        if (click%2 == 1)
+        if (ThemeMusic.click %2 == 1)
         {
+            ThemeMusic.mute = true;
             musicButton.image.overrideSprite = noSoundImage;
         }
         else
         {
+            ThemeMusic.mute = false;
             musicButton.image.overrideSprite = soundImage;
         }
     }

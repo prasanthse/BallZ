@@ -46,6 +46,9 @@ public class OnTrigger : MonoBehaviour
 
     private void playSoundClip()
     {
-        soundClip.Play();
+        if (!ThemeMusic.mute)
+        {
+            soundClip.Play();
+        }
     }
 }

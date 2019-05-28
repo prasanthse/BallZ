@@ -13,6 +13,9 @@ public class PlayAudioClip : MonoBehaviour
 
     public void playSoundClip()
     {
-        soundClip.Play();
+        if (!ThemeMusic.mute)
+        {
+            soundClip.Play();
+        }
     }
 }

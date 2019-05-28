@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\SceneChange.cs" />
     <Compile Include="Assets\Scripts\ScoreColor.cs" />
     <Compile Include="Assets\Scripts\StarSpin.cs" />
+    <Compile Include="Assets\Scripts\ThemeMusic.cs" />
     <Compile Include="Assets\Scripts\Win.cs" />
     <None Include="Assets\CustomAssets\SkySerie Freebie\Hdri setup.txt" />
     <Reference Include="Unity.RenderPipelines.Core.Editor">
