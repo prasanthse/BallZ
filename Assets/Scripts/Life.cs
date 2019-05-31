@@ -16,8 +16,8 @@ public class Life : MonoBehaviour
         lifeImage = Resources.Load<Sprite>("Life");
         lostImage = Resources.Load<Sprite>("Out");
 
-        retrieve = new Retrieve();
-        retrieve.getLifeInfo();
+        //retrieve = new Retrieve();
+        //retrieve.getLifeInfo();
 
         life1 = GameObject.FindWithTag("Life1").GetComponent<Image>();
         life2 = GameObject.FindWithTag("Life2").GetComponent<Image>();

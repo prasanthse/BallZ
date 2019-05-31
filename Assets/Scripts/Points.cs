@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Points : MonoBehaviour
 {
-    public static int totalPoints = 10;
+    public static int totalPoints = 100;
     public static int playerPoints = 0;
     public static int currentStars = 0;
 }

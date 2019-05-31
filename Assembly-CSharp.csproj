@@ -64,6 +64,7 @@
     <Compile Include="Assets\Database\Queries.cs" />
     <Compile Include="Assets\Database\Scripts\Connection.cs" />
     <Compile Include="Assets\Database\Scripts\Create.cs" />
+    <Compile Include="Assets\Database\Scripts\Drop.cs" />
     <Compile Include="Assets\Database\Scripts\Insert.cs" />
     <Compile Include="Assets\Database\Scripts\Retrieve.cs" />
     <Compile Include="Assets\Database\Scripts\UpdateScore.cs" />

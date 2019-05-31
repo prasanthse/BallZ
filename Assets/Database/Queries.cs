@@ -13,7 +13,8 @@ public class Queries : MonoBehaviour
     {
         try
         {
-            dbcon = getConnection();
+            string connection = "URI=file:" + Application.persistentDataPath + "/BallZ.s3db";
+            dbcon = new SqliteConnection(connection);
             dbcon.Open();
 
             createHighScoreTable();
@@ -29,106 +30,124 @@ public class Queries : MonoBehaviour
     {
         try
         {
-            dbcon = getConnection();
+            string connection = "URI=file:" + Application.persistentDataPath + "/BallZ.s3db";
+            dbcon = new SqliteConnection(connection); 
             dbcon.Open();
 
             createHighScoreTable();
-            createLifeTable();
+            createLifeTable();   
         }
         catch (Exception ex)
         {
             Debug.Log(ex);
         }
     }
-
-    //get Database URL
-    public IDbConnection getConnection()
-    {
-        string connection = "URI=file:" + Application.persistentDataPath + "/BallZ.s3db";
-        Debug.Log(connection);
-        IDbConnection con = new SqliteConnection(connection);
-        return con;
-    }
-
-    //create HighScore table
+    
+   
+    //Create Tables
     public void createHighScoreTable()
     {
         dbcmd = dbcon.CreateCommand();
-
         string q_createTable = "CREATE TABLE IF NOT EXISTS high_score (id TEXT PRIMARY KEY, highest INTEGER)";
 
         dbcmd.CommandText = q_createTable;
         reader = dbcmd.ExecuteReader();
     }
 
-    //Create LifeTable
     public void createLifeTable()
     {
         dbcmd = dbcon.CreateCommand();
-
-        string q_createTable = "CREATE TABLE IF NOT EXISTS life (id TEXT PRIMARY KEY, life_one TIME, life_two TIME, life_three TIME, life_four TIME, life_five TIME)";
+        string q_createTable = "CREATE TABLE IF NOT EXISTS life (id TEXT PRIMARY KEY, life_one TEXT, life_two TEXT, life_three TEXT, life_four TEXT, life_five TEXT)";
 
         dbcmd.CommandText = q_createTable;
         reader = dbcmd.ExecuteReader();
     }
 
-    //Insert HighScore
+
+    //Drop Tables
+    public void DropHighScoreTable()
+    {
+        IDbCommand cmnd = dbcon.CreateCommand();
+
+        cmnd.CommandText = "DROP TABLE high_score";
+        cmnd.ExecuteNonQuery();
+    }
+
+    public void DropLifeTable()
+    {
+        IDbCommand cmnd = dbcon.CreateCommand();
+
+        cmnd.CommandText = "DROP TABLE life";
+        cmnd.ExecuteNonQuery();
+    }
+
+
+    //Insert into Tables
     public void insertHighScore(int score)
     {
-        dbcmd = dbcon.CreateCommand();
+        IDbCommand cmnd = dbcon.CreateCommand();
 
-        dbcmd.CommandText = "INSERT INTO high_score (id, highest) VALUES ('level1', 0)";
-        dbcmd.ExecuteNonQuery();
+        cmnd.CommandText = "INSERT INTO high_score (id, highest) VALUES ('level1', 0)";
+        cmnd.ExecuteNonQuery();
     }
 
-    //Insert Life
-    public void insertLifeInfo()
+    public void insertLifeInfo(DateTime dateTime)
     {
-        dbcmd = dbcon.CreateCommand();
+        IDbCommand cmnd = dbcon.CreateCommand();
 
-        dbcmd.CommandText = "INSERT INTO life (id, life_one, life_two, life_three, life_four, life_five) VALUES ('level1', null, null, null, null, null)";
-        dbcmd.ExecuteNonQuery();
+        cmnd.CommandText = "INSERT INTO life (id, life_one, life_two, life_three, life_four, life_five) VALUES ('level1'," + dateTime.ToString() + ", null, null, null, null)";
+        cmnd.ExecuteNonQuery();
     }
 
-    //Retrieve Life
+
+    //Retrieve Tables
     public void getLifeInfo()
     {
-        dbcmd = dbcon.CreateCommand();
+        IDbCommand cmnd_read = dbcon.CreateCommand();
+        IDataReader reader;
 
         string query = "SELECT * FROM life where id = 'level1'";
-        dbcmd.CommandText = query;
-        reader = dbcmd.ExecuteReader();
+        cmnd_read.CommandText = query;
+        reader = cmnd_read.ExecuteReader();
 
         while (reader.Read())
         {
-            Debug.Log("life1: " + reader[0].ToString());
-            Debug.Log("life2: " + reader[1].ToString());
-            Debug.Log("life3: " + reader[1].ToString());
-            Debug.Log("life4: " + reader[1].ToString());
-            Debug.Log("life5: " + reader[1].ToString());
+            Debug.Log("life1: " + reader[1].ToString());
+            Debug.Log("life2: " + reader[2].ToString());
+            Debug.Log("life3: " + reader[3].ToString());
+            Debug.Log("life4: " + reader[4].ToString());
+            Debug.Log("life5: " + reader[5].ToString());
         }
     }
 
-    //Retrieve HighScore
     public string getHighScore()
     {
-        dbcmd = dbcon.CreateCommand();
+        IDbCommand cmnd_read = dbcon.CreateCommand();
+        IDataReader reader;
 
         string query = "SELECT highest FROM high_score where id = 'level1'";
-        dbcmd.CommandText = query;
-        reader = dbcmd.ExecuteReader();
+        cmnd_read.CommandText = query;
+        reader = cmnd_read.ExecuteReader();
 
         string score = reader[0].ToString();
 
         return score;
     }
 
-    //Update HighScore
+
+    //Update Tables
     public void updateHighScore(int number)
     {
-        dbcmd = dbcon.CreateCommand();
+        IDbCommand cmnd = dbcon.CreateCommand();
 
-        dbcmd.CommandText = "UPDATE high_score set highest = " + number + " WHERE id = 'level1'";
-        dbcmd.ExecuteNonQuery();
+        cmnd.CommandText = "UPDATE high_score set highest = " + number + " WHERE id = 'level1'";
+        cmnd.ExecuteNonQuery();
+    }
+
+
+    //Close Connection
+    public void close()
+    {
+        dbcon.Close();
     }
 }

@@ -6,19 +6,9 @@ using Mono.Data.Sqlite;
 
 public class Retrieve : MonoBehaviour
 {
-    private IDbConnection dbcon;
-    private Create dbCreate;
-
-    public Retrieve()
-    {
-        dbCreate = new Create();
-        dbcon = dbCreate.getConnection();
-        dbcon.Open();
-    }
-    
     public void getLifeInfo()
     {
-        IDbCommand cmnd_read = dbcon.CreateCommand();
+        IDbCommand cmnd_read = Connection.commonConnection.CreateCommand();
         IDataReader reader;
 
         string query = "SELECT * FROM life where id = 'level1'";     
@@ -37,7 +27,7 @@ public class Retrieve : MonoBehaviour
 
     public string getHighScore()
     {
-        IDbCommand cmnd_read = dbcon.CreateCommand();
+        IDbCommand cmnd_read = Connection.commonConnection.CreateCommand();
         IDataReader reader;
 
         string query = "SELECT highest FROM high_score where id = 'level1'";

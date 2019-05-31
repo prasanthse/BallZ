@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
+using Mono.Data.Sqlite;
 
 public class HighScore : MonoBehaviour
 {
     public Text highScore;
+
     private Retrieve retrieve;
     private UpdateScore updateScore;
+    private IDbConnection dbcon;
+
     public static bool highScoreChecking;
     public static int playerWinScore;
-
-    //private Queries queries;
 
     void Start()
     {
         retrieve = new Retrieve();
-        highScore.text = "High  Score:  " + retrieve.getHighScore();
-        //updateScore = new UpdateScore();
+        updateScore = new UpdateScore();
 
-        //queries = new Queries();
-        //highScore.text = "High  Score:  " + queries.getHighScore();
+        highScore.text = "High  Score:  " + retrieve.getHighScore();
 
         highScoreChecking = false;
         playerWinScore = 0;
@@ -35,9 +35,7 @@ public class HighScore : MonoBehaviour
 
             if(PlayerDead.isDead)
             {
-                //updateScore.updateHighScore(Points.playerPoints);
-                //queries.updateHighScore(Points.playerPoints);
-                Debug.Log("dead");
+                updateScore.updateHighScore(Points.playerPoints);
             }
         }
 
@@ -46,14 +44,8 @@ public class HighScore : MonoBehaviour
             if (playerWinScore > int.Parse(retrieve.getHighScore()))
             {
                 highScore.text = "High  Score:  " + playerWinScore;
-                //updateScore.updateHighScore(playerWinScore);
+                updateScore.updateHighScore(playerWinScore);
             }
-
-            //if (playerWinScore > int.Parse(queries.getHighScore()))
-            //{
-            //    highScore.text = "High  Score:  " + playerWinScore;
-            //    //queries.updateHighScore(playerWinScore);
-            //}
         }
     }
 
@@ -67,14 +59,5 @@ public class HighScore : MonoBehaviour
         {
             return false;
         }
-
-        //if (Points.playerPoints > int.Parse(queries.getHighScore()))
-        //{
-        //    return true;
-        //}
-        //else
-        //{
-        //    return false;
-        //}
     }
 }
