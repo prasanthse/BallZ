@@ -880,15 +880,14 @@ MonoBehaviour:
     on the path continuously with an acceptable speed and the player should rotate
     their phone left / right according to the road\u2019s turn to keep the ball move
     on. If they miss the correct rotation then the ball will fall down (The player
-    will lost a chance out of three).   \r\n\nOn their way they can see stars lies
-    on the road and the player should collect those stars. At the end if the stars
-    is enough for the next level then the player can unlock the next open world. (Ex:
-    - City, Ice, Mountain, Space etc.) \n\nBut not only that, the player wants to
-    defeat the barrier that we created. Which means in every open world according
-    to that world some objects will fall down on the road and make a barrier to move
-    on. The player should pass those barriers and collect the stars and wants to reach
-    the finishing line. The player have an option to tap on the screen to move the
-    ball left and right to survive from the barrier.   "
+    will lost a chance out of five).   \r\n\nOn their way they can see stars lies
+    on the road and the player should collect those stars. There will be 100 stars
+    and the player should get minimum 90 stars to unlock the next level. (Ex: - City,
+    Ice, Mountain, Space etc.) \n\nBut not only that, the player wants to defeat the
+    barrier that we created. Which means in every open world according to that world
+    some objects will fall down on the road and make a barrier to move on. The player
+    should pass those barriers and collect the stars and wants to reach the finishing
+    line.   "
 --- !u!222 &857100518
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1057,7 +1056,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 435069977}
   m_Direction: 2
   m_Value: 0.9997963
-  m_Size: 0.4883285
+  m_Size: 0.48832843
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         movement = true;
 
-        life = new Life();
+        //life = new Life();
 
         gameOver.SetActive(false);
 
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             counting.text = "";
-
+            
             if (movement)
             {
                 playerMovement();
@@ -65,8 +65,8 @@ public class PlayerController : MonoBehaviour
     {
         float dirX = Input.acceleration.x;
 
-        //transform.Rotate(10, 0, 0);
-        transform.Translate(dirX * (3 * speed/4), 0, speed);
+        transform.Rotate(speed * 100, 0, 0, Space.Self);
+        transform.Translate(dirX * (3 * speed/4), 0, speed, Space.World);
 
         if (transform.position.x > 1.6875 || transform.position.x < -1.6875)
         {
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
         movement = false;
 
-        life.decreaseLife();
+        //life.decreaseLife();
 
         gameOver.SetActive(true);
     }
