@@ -10,7 +10,7 @@ public class HighScore : MonoBehaviour
     public Text highScore;
 
     private Retrieve retrieve;
-    private UpdateScore updateScore;
+    private UpdateTables updateScore;
     private IDbConnection dbcon;
 
     public static bool highScoreChecking;
@@ -19,7 +19,7 @@ public class HighScore : MonoBehaviour
     void Start()
     {
         retrieve = new Retrieve();
-        updateScore = new UpdateScore();
+        updateScore = new UpdateTables();
 
         highScore.text = "High  Score:  " + retrieve.getHighScore();
 
@@ -33,7 +33,7 @@ public class HighScore : MonoBehaviour
         {
             highScore.text = "High  Score:  " + Points.playerPoints;
 
-            if(PlayerDead.isDead)
+            if (PlayerDead.isDead)
             {
                 updateScore.updateHighScore(Points.playerPoints);
             }
