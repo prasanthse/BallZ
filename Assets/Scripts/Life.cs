@@ -9,18 +9,18 @@ public class Life : MonoBehaviour
     private Sprite lifeImage, lostImage;
     private Image life1, life2, life3, life4, life5;
     private static int playerLife = 5;
-    private Retrieve retrieve;
-    private UpdateTables updateTables;
+    //private Retrieve retrieve;
+    //private UpdateTables updateTables;
 
     public Life()
     {
         lifeImage = Resources.Load<Sprite>("Life");
         lostImage = Resources.Load<Sprite>("Out");
 
-        retrieve = new Retrieve();
-        updateTables = new UpdateTables();
+        //retrieve = new Retrieve();
+        //updateTables = new UpdateTables();
 
-        updateTables.updateLife("", null, null, null, null);
+        //updateTables.updateLife("", null, null, null, null);
 
         life1 = GameObject.FindWithTag("Life1").GetComponent<Image>();
         life2 = GameObject.FindWithTag("Life2").GetComponent<Image>();

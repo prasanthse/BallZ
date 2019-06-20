@@ -43,20 +43,23 @@ public class PlayerController : MonoBehaviour
         else
         {
             counting.text = "";
-            
-            if (movement)
-            {
-                playerMovement();
-            }
 
-            if (PlayerDead.isDead && movement)
+            if (!ExitApp.pause)
             {
-                SetPlayerDead();
-            }
+                if (movement)
+                {
+                    playerMovement();
+                }
 
-            if (slowMotion)
-            {
-                createSlowMotionEffect();
+                if (PlayerDead.isDead && movement)
+                {
+                    SetPlayerDead();
+                }
+
+                if (slowMotion)
+                {
+                    createSlowMotionEffect();
+                }
             }
         }
     }
@@ -127,6 +130,7 @@ public class PlayerController : MonoBehaviour
         PlayerDead.isDead = false;
         HighScore.highScoreChecking = false;
         LevelSelection.locked = true;
+        ExitApp.pause = false;
         slowMotion = false;
     }
 }

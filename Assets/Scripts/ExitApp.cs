@@ -8,6 +8,7 @@ public class ExitApp : MonoBehaviour
 {
     public GameObject exitWindow;
     public bool mainMenu, game;
+    public static bool pause = false;
     private Button yes, no;
 
     void Start()
@@ -29,10 +30,7 @@ public class ExitApp : MonoBehaviour
             {
                 if (game)
                 {
-                    if(Time.timeScale == 1)
-                    {
-                        Time.timeScale = 0;
-                    }
+                    GamePause();
                 }
 
                 exitWindow.SetActive(true);
@@ -55,6 +53,13 @@ public class ExitApp : MonoBehaviour
     private void noQuit()
     {
         exitWindow.SetActive(false);
+        pause = false;
         Time.timeScale = 1;
+    }
+
+    private void GamePause()
+    {
+        pause = true;
+        Time.timeScale = 0;
     }
 }

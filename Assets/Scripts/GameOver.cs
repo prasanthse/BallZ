@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
     public Button decision, exit;
     public float time;
     public static bool winTextDisplay;
-    private Retrieve retrieve;
+    //private Retrieve retrieve;
 
     void Start()
     {
@@ -26,8 +26,8 @@ public class GameOver : MonoBehaviour
 
         winTextDisplay = false;
 
-        retrieve = new Retrieve();
-        highestPoints.text = retrieve.getHighScore();
+        //retrieve = new Retrieve();
+        //highestPoints.text = retrieve.getHighScore();
     }
 
     void Update()
