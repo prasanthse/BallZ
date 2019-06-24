@@ -17,7 +17,14 @@ public class Database : MonoBehaviour
 
     string DatabaseName = "BallZ_Db.s3db";
 
-    void Start()
+    //Updates in High Score
+    public static bool changeHighScore = false;
+
+    //Updates in Life
+    public static string lostTime = "null";
+    public static string column = null;
+
+    void Awake()
     {
         //Application database Path android
         string filepath = Application.persistentDataPath + "/" + DatabaseName;
@@ -40,6 +47,9 @@ public class Database : MonoBehaviour
 
         dbconn = new SqliteConnection(conn);
         dbconn.Open();
+        
+        SearchHighScore("1");
+        SearchLife("1");
     }
 
     //Create
@@ -70,26 +80,13 @@ public class Database : MonoBehaviour
             dbcmd.CommandText = query;
             reader = dbcmd.ExecuteReader();
 
-            InsertLife("1", null, null, null, null, null);
+            InsertLife("1", "null", "null", "null", "null", "null");
 
             Debug.Log("Life Table Created With Values");
         }
         catch (Exception e)
         {
             Debug.Log(e);
-        }
-    }
-
-    //Search 
-    public void RetrieveScoreDatas(string db, string id)
-    {
-        if (string.Equals(db, "highest"))
-        {
-            SearchHighScore(id);
-        }
-        else if (string.Equals(db, "life"))
-        {
-            SearchLife(id);
         }
     }
 
@@ -152,8 +149,7 @@ public class Database : MonoBehaviour
 
             while (reader.Read())
             {
-                Debug.Log("id =" + reader.GetString(0));
-                Debug.Log("\nHighest =" + reader.GetString(1));
+                DatabaseUpdates.highScore = reader.GetString(1);
             }
 
             reader.Close();
@@ -161,8 +157,6 @@ public class Database : MonoBehaviour
             dbcmd.Dispose();
             dbcmd = null;
             dbconn.Close();
-
-            Debug.Log("Successfully Retrieved Datas in High Score Table");
         }
     }
 
@@ -180,12 +174,11 @@ public class Database : MonoBehaviour
 
             while (reader.Read())
             {
-                Debug.Log("id =" + reader.GetString(0));
-                Debug.Log("\nlife1 =" + reader.GetString(1));
-                Debug.Log("\nlife2 =" + reader.GetString(2));
-                Debug.Log("\nlife3 =" + reader.GetString(3));
-                Debug.Log("\nlife4 =" + reader.GetString(4));
-                Debug.Log("\nlife5 =" + reader.GetString(5));
+                DatabaseUpdates.life1 = reader.GetString(1);
+                DatabaseUpdates.life2 = reader.GetString(2);
+                DatabaseUpdates.life3 = reader.GetString(3);
+                DatabaseUpdates.life4 = reader.GetString(4);
+                DatabaseUpdates.life5 = reader.GetString(5);
             }
 
             reader.Close();
@@ -199,7 +192,7 @@ public class Database : MonoBehaviour
     }
 
     //Update on High Score Table 
-    public void UpdateHighScore(string id, string score)
+    private void UpdateHighScore(string id, string score)
     {
         using (dbconn = new SqliteConnection(conn))
         {
@@ -221,7 +214,7 @@ public class Database : MonoBehaviour
         }
     }
 
-    //Update on Life Table
+    //Update on Life Table Full Datas
     public void UpdateLife(string id, string life_One, string life_Two, string life_Three, string life_Four, string life_Five)
     {
         using (dbconn = new SqliteConnection(conn))
@@ -249,6 +242,29 @@ public class Database : MonoBehaviour
             dbconn.Close();
 
             Debug.Log("Successfully Updated Datas in Life Table");
+        }
+    }
+
+    //Update on Life Table Single Column
+    public void UpdateLifeColumn(string id)
+    {
+        using (dbconn = new SqliteConnection(conn))
+        {
+            dbconn.Open();
+            dbcmd = dbconn.CreateCommand();
+            sqlQuery = string.Format("UPDATE life set (" + column + ") = @life where ID = @id ");
+
+            SqliteParameter P_update_life = new SqliteParameter("@life", lostTime);
+            SqliteParameter P_update_id = new SqliteParameter("@id", id);
+
+            dbcmd.Parameters.Add(P_update_life);
+            dbcmd.Parameters.Add(P_update_id);
+
+            dbcmd.CommandText = sqlQuery;
+            dbcmd.ExecuteScalar();
+            dbconn.Close();
+
+            Debug.Log("Successfully Updated Data Column in Life Table");
         }
     }
 
@@ -286,5 +302,20 @@ public class Database : MonoBehaviour
             dbcmd = null;
             dbconn.Close();
         }
+    }
+
+    void Update()
+    {
+        if (!lostTime.Equals("null"))
+        {
+            UpdateLifeColumn("1");
+            lostTime = "null";
+        }
+
+        //if (changeHighScore)
+        //{
+        //    UpdateHighScore("1", Points.playerPoints.ToString());
+        //    changeHighScore = false;
+        //}
     }
 }

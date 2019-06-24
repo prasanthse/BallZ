@@ -61,13 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Database\Scripts\Connection.cs" />
     <Compile Include="Assets\Scripts\AutoSceneChange.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\ConnectSocialMedias.cs" />
     <Compile Include="Assets\Scripts\CrckedHole.cs" />
     <Compile Include="Assets\Scripts\CreateStars.cs" />
     <Compile Include="Assets\Scripts\Database.cs" />
+    <Compile Include="Assets\Scripts\DatabaseUpdates.cs" />
     <Compile Include="Assets\Scripts\DestroyObject.cs" />
     <Compile Include="Assets\Scripts\EndLevel.cs" />
     <Compile Include="Assets\Scripts\ExitApp.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\LavaRock.cs" />
     <Compile Include="Assets\Scripts\LevelSelection.cs" />
     <Compile Include="Assets\Scripts\Life.cs" />
+    <Compile Include="Assets\Scripts\LifeTime.cs" />
     <Compile Include="Assets\Scripts\Mute.cs" />
     <Compile Include="Assets\Scripts\NumberOfPaths.cs" />
     <Compile Include="Assets\Scripts\OnTrigger.cs" />
@@ -338,6 +339,9 @@
     <Reference Include="Mono.Data.Sqlite">
       <HintPath>C:/Users/prasanth/Desktop/MobileGame/BallZ/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:/Users/prasanth/Desktop/MobileGame/BallZ/Assets/Plugins/System.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/prasanth/Desktop/MobileGame/BallZ/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -346,9 +350,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Users/prasanth/Desktop/MobileGame/BallZ/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data">
-      <HintPath>C:/Users/prasanth/Desktop/MobileGame/BallZ/Assets/Plugins/System.Data.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

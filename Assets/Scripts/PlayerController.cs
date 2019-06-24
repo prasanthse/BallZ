@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         movement = true;
 
-        //life = new Life();
+        life = new Life();
 
         gameOver.SetActive(false);
 
@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        life.lifeCountDown();
+
         if (time >= 0)
         {
             time = time - Time.deltaTime;
@@ -93,12 +95,12 @@ public class PlayerController : MonoBehaviour
             holeSound.Play();
         }
 
-        transform.Translate(PlayerDead.x, -1, PlayerDead.z);
-        //transform.Rotate(0, 0, 0);
+        transform.Rotate(0, 0, 0, Space.Self);
+        transform.Translate(PlayerDead.x, -1, PlayerDead.z, Space.World);
 
         movement = false;
 
-        //life.decreaseLife();
+        life.decreaseLife();
 
         gameOver.SetActive(true);
     }
@@ -110,7 +112,6 @@ public class PlayerController : MonoBehaviour
         if (timer >= 0)
         {
             timer = timer - Time.deltaTime;
-            //Time.timeScale = (float)0.5;
         }
         else
         {
