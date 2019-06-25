@@ -1,28 +1,76 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LifeTime : MonoBehaviour
 {
-    private float timeInterval = 10;
+    private float timeInterval;
 
-    //CalculateTime
-    public void checkTimeSlots(string life, string columnName)
+    void Start()
     {
-        if (int.Parse(seperateSeconds(life)) < (60 - timeInterval) && int.Parse(seperateSeconds(life)) > timeInterval)
-        {
-            Database.column = columnName;
-            Database.lostTime = "Need Update";
-        }
-        else if(int.Parse(seperateSeconds(life)) < (60 - timeInterval))
-        {
-            Debug.Log("need to implement");
+        timeInterval = 15; //Minutes
+    }
 
-        }else if (int.Parse(seperateSeconds(life)) > timeInterval)
+    void Update()
+    {
+        if (!DatabaseUpdates.life1.Equals("null"))
         {
-            Debug.Log("need to implement");
+            checkTimeSlots(DatabaseUpdates.life1);
         }
     }
+
+    public void checkTimeSlots(string life)
+    {
+        if (seperateYear(life).Equals(DateTime.Now.Year) && seperateMonth(life).Equals(DateTime.Now.Month) && seperateDay(life).Equals(DateTime.Now.Day) &&
+            seperateHour(life).Equals(DateTime.Now.Hour))
+        {
+            if (int.Parse(seperateMinutes(life)) < (60 - timeInterval))
+            {
+                if (DateTime.Now.Minute == (int.Parse(seperateMinutes(life)) + timeInterval))
+                {
+                    updateDatabase("life_One");
+                }
+            }else if (int.Parse(seperateMinutes(life)) == (60 - timeInterval))
+            {
+                if (DateTime.Now.Minute == 0)
+                {
+                    updateDatabase("life_One");
+                }
+            }
+            else
+            {
+                Debug.Log("need to done");
+            }
+        }
+    }
+
+
+    private string getCurrentTime()
+    {
+        return DateTime.Now.ToString();
+    }
+
+    //private bool lifeCountDown()
+    //{
+    //    //if (startTimer < timeInterval)
+    //    //{
+    //    //    startTimer = startTimer + Time.deltaTime;
+    //    //    return true;
+    //    //}
+    //    //else
+    //    //{
+    //    //    return false;
+    //    //}
+    //}
+
+    private void updateDatabase(string column)
+    {
+        Database.column = column;
+        Database.increase = true;
+        Database.lostTime = "null";
+    }
+
 
     //Seperate Times
     private string seperateTimeWithoutTags(string life)
@@ -80,6 +128,7 @@ public class LifeTime : MonoBehaviour
     {
         return getTextBeforeIndex(seperateDate(life), "/");
     }
+
 
 
 

@@ -8,16 +8,9 @@ public class Life : MonoBehaviour
 {
     private Sprite lifeImage, lostImage;
     private Image life1, life2, life3, life4, life5;
-    private LifeTime lifeTime;
-    private float timeInterval;
-    private bool increaseLifeStatus;
 
     public Life()
     {
-        lifeTime = new LifeTime();
-        timeInterval = 10;
-        increaseLifeStatus = false;
-
         lifeImage = Resources.Load<Sprite>("Life");
         lostImage = Resources.Load<Sprite>("Out");
 
@@ -78,32 +71,6 @@ public class Life : MonoBehaviour
         }
     }
 
-    public void IncreaseLife()
-    {
-        if (!DatabaseUpdates.life1.Equals("null"))
-        {
-            lifeTime.checkTimeSlots(DatabaseUpdates.life1, "life_One");
-        }
-        if (!DatabaseUpdates.life2.Equals("null"))
-        {
-            lifeTime.checkTimeSlots(DatabaseUpdates.life2, "life_Two");
-        }
-        if (!DatabaseUpdates.life3.Equals("null"))
-        {
-            lifeTime.checkTimeSlots(DatabaseUpdates.life3, "life_Three");
-        }
-        if (!DatabaseUpdates.life4.Equals("null"))
-        {
-            lifeTime.checkTimeSlots(DatabaseUpdates.life4, "life_Four");
-        }
-        if (!DatabaseUpdates.life5.Equals("null"))
-        {
-            lifeTime.checkTimeSlots(DatabaseUpdates.life5, "life_Five");
-        }
-
-        increaseLifeStatus = false;
-    }
-
     public void decreaseLife()
     {
         if (DatabaseUpdates.life5.Equals("null"))
@@ -141,18 +108,5 @@ public class Life : MonoBehaviour
     private string getCurrentTime()
     {
         return DateTime.Now.ToString();
-    }
-
-    public void lifeCountDown()
-    {
-        if (timeInterval > 0)
-        {
-            timeInterval = timeInterval - Time.deltaTime;
-            increaseLifeStatus = true;
-
-        }else if (increaseLifeStatus)
-        {
-            IncreaseLife();
-        }
     }
 }

@@ -18,14 +18,24 @@ public class Database : MonoBehaviour
     string DatabaseName = "BallZ_Db.s3db";
 
     //Updates in High Score
-    public static bool changeHighScore = false;
+    public static bool changeHighScore;
+    public static bool updateScoreConfirm;
+    public static string selectHighScore;
 
     //Updates in Life
-    public static string lostTime = "null";
-    public static string column = null;
+    public static string lostTime;
+    public static string column;
+    public static bool increase;
 
     void Awake()
     {
+        changeHighScore = true;
+        updateScoreConfirm = false;
+        lostTime = "null";
+        column = null;
+        selectHighScore = null;
+        increase = false;
+
         //Application database Path android
         string filepath = Application.persistentDataPath + "/" + DatabaseName;
 
@@ -47,7 +57,7 @@ public class Database : MonoBehaviour
 
         dbconn = new SqliteConnection(conn);
         dbconn.Open();
-        
+
         SearchHighScore("1");
         SearchLife("1");
     }
@@ -311,11 +321,29 @@ public class Database : MonoBehaviour
             UpdateLifeColumn("1");
             lostTime = "null";
         }
+        else
+        {
+            if (increase)
+            {
+                UpdateLifeColumn("1");
+                increase = false;
+            }
+        }
 
-        //if (changeHighScore)
-        //{
-        //    UpdateHighScore("1", Points.playerPoints.ToString());
-        //    changeHighScore = false;
-        //}
+        if (updateScoreConfirm)
+        {
+            if (selectHighScore.Equals("dead"))
+            {
+                UpdateHighScore("1", Points.playerPoints.ToString());
+            }
+            else if (selectHighScore.Equals("win"))
+            {
+                UpdateHighScore("1", HighScore.playerWinScore.ToString());
+            }
+            
+            changeHighScore = false;
+            updateScoreConfirm = false;
+            selectHighScore = null;
+        }
     }
 }

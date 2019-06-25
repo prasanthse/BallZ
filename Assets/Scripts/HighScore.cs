@@ -24,19 +24,20 @@ public class HighScore : MonoBehaviour
         {
             highScore.text = "High  Score:  " + Points.playerPoints;
 
-            if (PlayerDead.isDead)
+            if (PlayerDead.isDead && Database.changeHighScore)
             {
-                Database.changeHighScore = true;
-                //updateScore.updateHighScore(Points.playerPoints);
+                Database.selectHighScore = "dead";
+                Database.updateScoreConfirm = true;
             }
         }
 
         if (highScoreChecking)
         {
-            if (playerWinScore > int.Parse(DatabaseUpdates.highScore))
+            if ((playerWinScore > int.Parse(DatabaseUpdates.highScore)) && Database.changeHighScore)
             {
                 highScore.text = "High  Score:  " + playerWinScore;
-                //updateScore.updateHighScore(playerWinScore);
+                Database.selectHighScore = "win";
+                Database.updateScoreConfirm = true;
             }
         }
     }

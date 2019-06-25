@@ -35,8 +35,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        life.lifeCountDown();
-
         if (time >= 0)
         {
             time = time - Time.deltaTime;
