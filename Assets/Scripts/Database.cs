@@ -196,8 +196,6 @@ public class Database : MonoBehaviour
             dbcmd.Dispose();
             dbcmd = null;
             dbconn.Close();
-
-            Debug.Log("Successfully Retrieved Datas in Life Table");
         }
     }
 
@@ -319,6 +317,7 @@ public class Database : MonoBehaviour
         if (!lostTime.Equals("null"))
         {
             UpdateLifeColumn("1");
+            SearchLife("1");
             lostTime = "null";
         }
         else
@@ -326,6 +325,7 @@ public class Database : MonoBehaviour
             if (increase)
             {
                 UpdateLifeColumn("1");
+                SearchLife("1");
                 increase = false;
             }
         }

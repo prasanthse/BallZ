@@ -2,45 +2,148 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LifeTime : MonoBehaviour
 {
     private float timeInterval;
+    private bool timeUpdates;
+    public GameObject noLife;
+    public Text countDownText;
 
     void Start()
     {
         timeInterval = 15; //Minutes
+        timeUpdates = true;
+        noLife.SetActive(false);
     }
 
     void Update()
     {
-        if (!DatabaseUpdates.life1.Equals("null"))
+        if (!DatabaseUpdates.life1.Equals("null") && !DatabaseUpdates.life2.Equals("null") && !DatabaseUpdates.life3.Equals("null") && !DatabaseUpdates.life4.Equals("null") && 
+            !DatabaseUpdates.life5.Equals("null"))
         {
-            checkTimeSlots(DatabaseUpdates.life1);
+            noLife.SetActive(true);
+            countDownText.text = "" + (int.Parse(seperateMinutes(DatabaseUpdates.life1)) - DateTime.Now.Minute);
+        }
+        else
+        {
+            noLife.SetActive(false);
+
+            if (!DatabaseUpdates.life1.Equals("null"))
+            {
+                timeUpdates = true;
+                checkTimeSlots(DatabaseUpdates.life1, "life_One");
+            }
+
+            if (!DatabaseUpdates.life2.Equals("null"))
+            {
+                timeUpdates = true;
+                checkTimeSlots(DatabaseUpdates.life2, "life_Two");
+            }
+
+            if (!DatabaseUpdates.life3.Equals("null"))
+            {
+                timeUpdates = true;
+                checkTimeSlots(DatabaseUpdates.life3, "life_Three");
+            }
+
+            if (!DatabaseUpdates.life4.Equals("null"))
+            {
+                timeUpdates = true;
+                checkTimeSlots(DatabaseUpdates.life4, "life_Four");
+            }
+
+            if (!DatabaseUpdates.life5.Equals("null"))
+            {
+                timeUpdates = true;
+                checkTimeSlots(DatabaseUpdates.life5, "life_Five");
+            }
         }
     }
 
-    public void checkTimeSlots(string life)
+    public void checkTimeSlots(string life, string column)
     {
-        if (seperateYear(life).Equals(DateTime.Now.Year) && seperateMonth(life).Equals(DateTime.Now.Month) && seperateDay(life).Equals(DateTime.Now.Day) &&
-            seperateHour(life).Equals(DateTime.Now.Hour))
+        int yearDb = int.Parse(seperateYear(life));
+        int monthDb = int.Parse(seperateDay(life));
+        int dayDb = int.Parse(seperateMonth(life));
+        int hourDb = int.Parse(seperateHour(life));
+        int minuteDb = int.Parse(seperateMinutes(life));
+        int secondDb = int.Parse(seperateSeconds(life));
+        string tagDb = seperateTimeTags(life);
+
+        int secondNow = DateTime.Now.Second;
+        int minuteNow = DateTime.Now.Minute;
+        int hourNow = DateTime.Now.Hour;
+        int dayNow = DateTime.Now.Day;
+        int monthNow = DateTime.Now.Month;
+        int yearNow = DateTime.Now.Year;
+        string tagNow = seperateTimeTags(DateTime.Now.ToString());
+
+        if (tagNow.Equals("PM"))
         {
-            if (int.Parse(seperateMinutes(life)) < (60 - timeInterval))
+            hourNow = hourNow - 12;
+        }
+
+        //Year substraction greater than zero
+        if (timeUpdates && yearNow - yearDb > 0)
+        {
+            updateDatabase(column);
+            timeUpdates = false;
+        }
+        //Year substraction equals to zero
+        else if (timeUpdates && yearNow - yearDb == 0)
+        {
+            //Month substraction greater than zero
+            if (timeUpdates && monthNow - monthDb > 0)
             {
-                if (DateTime.Now.Minute == (int.Parse(seperateMinutes(life)) + timeInterval))
-                {
-                    updateDatabase("life_One");
-                }
-            }else if (int.Parse(seperateMinutes(life)) == (60 - timeInterval))
-            {
-                if (DateTime.Now.Minute == 0)
-                {
-                    updateDatabase("life_One");
-                }
+                updateDatabase(column);
+                timeUpdates = false;
             }
-            else
+            //Month substraction equals to zero
+            else if (timeUpdates && monthNow - monthDb == 0)
             {
-                Debug.Log("need to done");
+                //day substraction greater than zero
+                if (timeUpdates && dayNow - dayDb > 0)
+                {
+                    updateDatabase(column);
+                    timeUpdates = false;
+                }
+                //day substraction equals to zero
+                else if (timeUpdates && dayNow - dayDb == 0)
+                {
+                    //Hour substraction greater than zero
+                    if(timeUpdates && hourNow - hourDb > 0)
+                    {
+                        updateDatabase(column);
+                        timeUpdates = false;
+                    }
+                    //Hour substraction equals to zero
+                    else if (timeUpdates && hourNow - hourDb == 0)
+                    {
+                        //Minutes substraction greater than or equals to timeInterval without tag change
+                        if (timeUpdates && minuteNow - minuteDb >= timeInterval && tagNow.Equals(tagDb))
+                        {
+                            updateDatabase(column);
+                            timeUpdates = false;
+                        }
+                        //Minutes substraction less than or equals to timeInterval with tag change
+                        else if (timeUpdates && !tagNow.Equals(tagDb))
+                        {
+                            if (timeUpdates && (60 - minuteDb + minuteNow) >= timeInterval)
+                            {
+                                updateDatabase(column);
+                                timeUpdates = false;
+                            }
+                        }
+                    }
+                    //Hour substraction less than zero
+                    else if (timeUpdates && hourNow - hourDb < 0)
+                    {
+                        updateDatabase(column);
+                        timeUpdates = false;
+                    }
+                }
             }
         }
     }
@@ -51,25 +154,31 @@ public class LifeTime : MonoBehaviour
         return DateTime.Now.ToString();
     }
 
-    //private bool lifeCountDown()
-    //{
-    //    //if (startTimer < timeInterval)
-    //    //{
-    //    //    startTimer = startTimer + Time.deltaTime;
-    //    //    return true;
-    //    //}
-    //    //else
-    //    //{
-    //    //    return false;
-    //    //}
-    //}
+    private void checkMinutes(int count, string column)
+    {
+        if (count >= timeInterval)
+        {
+            timeUpdates = false;
+        }
+        else
+        {
+            timeUpdates = true;
+        }
+
+        if (!timeUpdates)
+        {
+            updateDatabase(column);
+        }
+    }
 
     private void updateDatabase(string column)
     {
         Database.column = column;
         Database.increase = true;
         Database.lostTime = "null";
+        Life.setRuntimeIcon(column);
     }
+
 
 
     //Seperate Times
