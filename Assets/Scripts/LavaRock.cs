@@ -29,7 +29,6 @@ public class LavaRock : MonoBehaviour
 
     void Update()
     {
-
         if (time >= 0)
         {
             time = time - Time.deltaTime;
@@ -42,7 +41,6 @@ public class LavaRock : MonoBehaviour
                 ground.size = new Vector3(x, y, player.position.z * 2);
             }
         }
-
     }
 
     private void dropLavaRocks()

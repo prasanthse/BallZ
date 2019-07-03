@@ -7,19 +7,22 @@ using UnityEngine.UI;
 public class ExitApp : MonoBehaviour
 {
     public GameObject exitWindow;
-    public bool mainMenu, game;
+    public bool mainMenu = false;
+    public bool game = false;
     public static bool pause = false;
     private Button yes, no;
+
+    private Camera camera;
 
     void Start()
     {
         yes = GameObject.FindGameObjectWithTag("YesQuit").GetComponent<Button>();
         no = GameObject.FindGameObjectWithTag("NoQuit").GetComponent<Button>();
 
-        exitWindow.SetActive(false);
+        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        mainMenu = false;
-        game = false;
+        exitWindow.SetActive(false);
+        camera.enabled = false;
     }
 
     void Update()
@@ -28,6 +31,8 @@ public class ExitApp : MonoBehaviour
         {
             if (mainMenu || game)
             {
+                camera.enabled = false;
+
                 if (game)
                 {
                     GamePause();
@@ -52,6 +57,7 @@ public class ExitApp : MonoBehaviour
 
     private void noQuit()
     {
+        camera.enabled = true;
         exitWindow.SetActive(false);
         pause = false;
         Time.timeScale = 1;
