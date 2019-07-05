@@ -22,7 +22,7 @@ public class ExitApp : MonoBehaviour
         camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         exitWindow.SetActive(false);
-        camera.enabled = false;
+        camera.enabled = true;
     }
 
     void Update()

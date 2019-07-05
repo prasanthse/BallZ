@@ -10,55 +10,57 @@ public class LifeTime : MonoBehaviour
     private bool timeUpdates;
     public GameObject noLife;
     public Text countDownText;
+    private int min;
 
     void Start()
     {
         timeInterval = 15; //Minutes
         timeUpdates = true;
         noLife.SetActive(false);
+        min = 0;
     }
 
     void Update()
     {
-        if (!DatabaseUpdates.life1.Equals("null") && !DatabaseUpdates.life2.Equals("null") && !DatabaseUpdates.life3.Equals("null") && !DatabaseUpdates.life4.Equals("null") && 
-            !DatabaseUpdates.life5.Equals("null"))
+        if (!(DatabaseUpdates.life1.Equals("null") || DatabaseUpdates.life2.Equals("null") || DatabaseUpdates.life3.Equals("null") || DatabaseUpdates.life4.Equals("null") ||
+            DatabaseUpdates.life5.Equals("null")))
         {
             noLife.SetActive(true);
-            countDownText.text = "" + (int.Parse(seperateMinutes(DatabaseUpdates.life1)) - DateTime.Now.Minute);
+            displayRemainingMinute();
         }
         else
         {
             noLife.SetActive(false);
+        }
 
-            if (!DatabaseUpdates.life1.Equals("null"))
-            {
-                timeUpdates = true;
-                checkTimeSlots(DatabaseUpdates.life1, "life_One");
-            }
+        if (!DatabaseUpdates.life1.Equals("null"))
+        {
+            timeUpdates = true;
+            checkTimeSlots(DatabaseUpdates.life1, "life_One");
+        }
 
-            if (!DatabaseUpdates.life2.Equals("null"))
-            {
-                timeUpdates = true;
-                checkTimeSlots(DatabaseUpdates.life2, "life_Two");
-            }
+        if (!DatabaseUpdates.life2.Equals("null"))
+        {
+            timeUpdates = true;
+            checkTimeSlots(DatabaseUpdates.life2, "life_Two");
+        }
 
-            if (!DatabaseUpdates.life3.Equals("null"))
-            {
-                timeUpdates = true;
-                checkTimeSlots(DatabaseUpdates.life3, "life_Three");
-            }
+        if (!DatabaseUpdates.life3.Equals("null"))
+        {
+            timeUpdates = true;
+            checkTimeSlots(DatabaseUpdates.life3, "life_Three");
+        }
 
-            if (!DatabaseUpdates.life4.Equals("null"))
-            {
-                timeUpdates = true;
-                checkTimeSlots(DatabaseUpdates.life4, "life_Four");
-            }
+        if (!DatabaseUpdates.life4.Equals("null"))
+        {
+            timeUpdates = true;
+            checkTimeSlots(DatabaseUpdates.life4, "life_Four");
+        }
 
-            if (!DatabaseUpdates.life5.Equals("null"))
-            {
-                timeUpdates = true;
-                checkTimeSlots(DatabaseUpdates.life5, "life_Five");
-            }
+        if (!DatabaseUpdates.life5.Equals("null"))
+        {
+            timeUpdates = true;
+            checkTimeSlots(DatabaseUpdates.life5, "life_Five");
         }
     }
 
@@ -179,7 +181,11 @@ public class LifeTime : MonoBehaviour
         Life.setRuntimeIcon(column);
     }
 
-
+    private void displayRemainingMinute()
+    {
+        countDownText.text = "" + (int.Parse(seperateMinutes(DatabaseUpdates.life1)) - DateTime.Now.Minute);
+    }
+    
 
     //Seperate Times
     private string seperateTimeWithoutTags(string life)

@@ -1263,8 +1263,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0013580001, y: -109.02}
-  m_SizeDelta: {x: 799.7, y: 23.3}
+  m_AnchoredPosition: {x: -0.00058746, y: -109.02}
+  m_SizeDelta: {x: 1089, y: 23.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398777528
 MonoBehaviour:
@@ -1357,7 +1357,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1614,6 +1614,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300221531534687963, guid: c6ddc0be0e880e44aa8219e83245c4cd,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300221531534687963, guid: c6ddc0be0e880e44aa8219e83245c4cd,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6ddc0be0e880e44aa8219e83245c4cd, type: 3}
@@ -2187,8 +2197,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.001358, y: 122.2}
-  m_SizeDelta: {x: 799.7, y: 23.3}
+  m_AnchoredPosition: {x: 0.0097198, y: 122.2}
+  m_SizeDelta: {x: 1089, y: 23.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1669271335
 MonoBehaviour:

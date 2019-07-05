@@ -5,9 +5,9 @@ using UnityEngine;
 public class RoadDevelopment : MonoBehaviour
 {
     public Transform playerTransform;
-    public GameObject path1, path2, star, lastPath;
+    public GameObject path1, path2, path3, star, lastPath;
     private GameObject[] pathTypes;
-    private int numberOfPaths = 2;
+    private int numberOfPaths = 3;
     private Random random;
     private static float selectedPath;
     private int lastPathPosition;
@@ -18,6 +18,7 @@ public class RoadDevelopment : MonoBehaviour
 
         pathTypes[0] = path1;
         pathTypes[1] = path2;
+        pathTypes[2] = path3;
 
         random = new Random();
 
@@ -26,7 +27,7 @@ public class RoadDevelopment : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform.position.z > (200*NumberOfPaths.pathsCreated - 50) && playerTransform.position.z < ((200 * NumberOfPaths.pathsCreated - 50) + 1) && !PlayerDead.isDead && !Win.playerWin && !EndLevel.endLevel) //New path added when the player reached the 3/4 (150) of length of it's current path
+        if (playerTransform.position.z > (200*NumberOfPaths.pathsCreated - 150) && playerTransform.position.z < ((200 * NumberOfPaths.pathsCreated - 150) + 1) && !PlayerDead.isDead && !Win.playerWin && !EndLevel.endLevel) //New path added when the player reached the 3/4 (150) of length of it's current path
         {
             ChangeShapes();
         }
