@@ -5,12 +5,13 @@ using UnityEngine;
 public class RoadDevelopment : MonoBehaviour
 {
     public Transform playerTransform;
-    public GameObject path1, path2, path3, star, lastPath;
+    public GameObject path1, path2, star, lastPath;
     private GameObject[] pathTypes;
-    private int numberOfPaths = 3;
+    private int numberOfPaths = 2;
     private Random random;
     private static float selectedPath;
     private int lastPathPosition;
+    private static int getLastPathIndex;
 
     void Start()
     {
@@ -18,11 +19,11 @@ public class RoadDevelopment : MonoBehaviour
 
         pathTypes[0] = path1;
         pathTypes[1] = path2;
-        pathTypes[2] = path3;
 
         random = new Random();
 
         lastPathPosition = 0;
+        getLastPathIndex = 0;
     }
 
     void Update()
@@ -49,7 +50,18 @@ public class RoadDevelopment : MonoBehaviour
     private void ChangeShapes()
     {
         selectedPath = random.randomNumberGenerator(0, numberOfPaths);
-        Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * NumberOfPaths.pathsCreated + 98)), Quaternion.identity);
+
+        if((int)selectedPath == 0)
+        {
+            Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * NumberOfPaths.pathsCreated + 98)), Quaternion.identity);
+            //getLastPathIndex = 0;
+        }
+        else if((int)selectedPath == 1)
+        {
+            Instantiate(pathTypes[(int)selectedPath], new Vector3(1.6F, 0, (200 * NumberOfPaths.pathsCreated + 27.73F)), Quaternion.identity);
+            //getLastPathIndex = 1;
+        }
+        
         NumberOfPaths.calculatePathCount();
     }
 

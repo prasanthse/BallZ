@@ -515,8 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2042983983}
   path1: {fileID: 1798106774334616847, guid: 2d273b0191a45b542a36be8f91897e84, type: 3}
-  path2: {fileID: 1798106774334616847, guid: 2d273b0191a45b542a36be8f91897e84, type: 3}
-  path3: {fileID: 1798106774334616847, guid: 2d273b0191a45b542a36be8f91897e84, type: 3}
+  path2: {fileID: 1546393006865727140, guid: 2aa88293c1705754f95ea5624414b786, type: 3}
   star: {fileID: 6222713579760649786, guid: 007f034d6da42b34d9b3c58f2456f20b, type: 3}
   lastPath: {fileID: 503400420883519725, guid: c0123777e1e5b484984668877d1cc9fd, type: 3}
 --- !u!114 &194770305
@@ -526,7 +525,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194770298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 204a4561b1a9fd846a668c83fd54acb0, type: 3}
   m_Name: 
@@ -1852,6 +1851,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201194177601722113, guid: 77bbfd8aa1d1efe4591db780187927e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8201194177601722125, guid: 77bbfd8aa1d1efe4591db780187927e7,
         type: 3}
