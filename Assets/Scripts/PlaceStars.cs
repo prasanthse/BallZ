@@ -75,6 +75,6 @@ public class PlaceStars : MonoBehaviour
             z = z + 10;
         }
 
-        PlaceStars.starPlacement = false;
+        starPlacement = false;
     }
 }

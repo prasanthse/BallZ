@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Life life;
     private Camera gameView;
     public static bool slowMotion;
+    public static bool noLife;
 
     void Start()
     {
@@ -35,12 +36,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (time >= 0)
+        if (time >= 0 && !noLife)
         {
             time = time - Time.deltaTime;
             counting.text = "" + (int)time;
         }
-        else
+        else if(!noLife)
         {
             counting.text = "";
 

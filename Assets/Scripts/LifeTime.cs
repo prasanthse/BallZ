@@ -10,14 +10,14 @@ public class LifeTime : MonoBehaviour
     private bool timeUpdates;
     public GameObject noLife;
     public Text countDownText;
-    private int min;
+    private static bool passSixty = false;
+    private int min = 0;
 
     void Start()
     {
         timeInterval = 15; //Minutes
         timeUpdates = true;
         noLife.SetActive(false);
-        min = 0;
     }
 
     void Update()
@@ -26,11 +26,17 @@ public class LifeTime : MonoBehaviour
             DatabaseUpdates.life5.Equals("null")))
         {
             noLife.SetActive(true);
+            PlayerController.noLife = true;
+            LavaRock.noRock = true;
             displayRemainingMinute();
         }
         else
         {
+            passSixty = false;
             noLife.SetActive(false);
+            PlayerController.noLife = false;
+            LavaRock.noRock = false;
+            min = 0;
         }
 
         if (!DatabaseUpdates.life1.Equals("null"))
@@ -183,7 +189,39 @@ public class LifeTime : MonoBehaviour
 
     private void displayRemainingMinute()
     {
-        countDownText.text = "" + (int.Parse(seperateMinutes(DatabaseUpdates.life1)) - DateTime.Now.Minute);
+        int displayTime = 0;
+
+        if(min == 0)
+        {
+            int[] lifeMinute = {int.Parse(seperateMinutes(DatabaseUpdates.life1)), int.Parse(seperateMinutes(DatabaseUpdates.life2)), int.Parse(seperateMinutes(DatabaseUpdates.life3)),
+        int.Parse(seperateMinutes(DatabaseUpdates.life4)), int.Parse(seperateMinutes(DatabaseUpdates.life5))};
+
+            min = lifeMinute[0];
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (lifeMinute[i] < min)
+                {
+                    min = lifeMinute[i];
+                }
+            }
+        }
+
+        if ((DateTime.Now.Minute != 0 || min < 45) && !passSixty)
+        {
+            displayTime = (int)timeInterval - (DateTime.Now.Minute - min);
+        }
+        else if(DateTime.Now.Minute == 0)
+        {
+            displayTime = (int)timeInterval - (60 - min);
+            passSixty = true;
+
+        }else if (passSixty)
+        {
+            displayTime = (int)timeInterval - (60 - min + DateTime.Now.Minute);
+        }
+
+        countDownText.text = "" + displayTime;
     }
     
 

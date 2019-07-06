@@ -20,6 +20,8 @@ public class LavaRock : MonoBehaviour
     private float y = 1;
     private float z = 200;
 
+    public static bool noRock;
+
     void Start()
     {
         random = new Random();
@@ -29,11 +31,11 @@ public class LavaRock : MonoBehaviour
 
     void Update()
     {
-        if (time >= 0)
+        if (time >= 0 && !noRock)
         {
             time = time - Time.deltaTime;
         }
-        else
+        else if(!noRock)
         {
             if (!PlayerDead.isDead && !Win.playerWin)
             {

@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\RoadDevelopment.cs" />
     <Compile Include="Assets\Scripts\SceneChange.cs" />
     <Compile Include="Assets\Scripts\ScoreColor.cs" />
+    <Compile Include="Assets\Scripts\StarAdjustment.cs" />
     <Compile Include="Assets\Scripts\StarSpin.cs" />
     <Compile Include="Assets\Scripts\ThemeMusic.cs" />
     <Compile Include="Assets\Scripts\Win.cs" />

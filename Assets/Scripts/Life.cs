@@ -106,6 +106,33 @@ public class Life : MonoBehaviour
                 life1.sprite = lostImage;
             }
         }
+        else
+        {
+            if (DatabaseUpdates.life1.Equals("null"))
+            {
+                Database.column = "life_One";
+                Database.lostTime = getCurrentTime();
+                life1.sprite = lostImage;
+            }
+            else if (DatabaseUpdates.life2.Equals("null"))
+            {
+                Database.column = "life_Two";
+                Database.lostTime = getCurrentTime();
+                life2.sprite = lostImage;
+            }
+            else if (DatabaseUpdates.life3.Equals("null"))
+            {
+                Database.column = "life_Three";
+                Database.lostTime = getCurrentTime();
+                life3.sprite = lostImage;
+            }
+            else if (DatabaseUpdates.life4.Equals("null"))
+            {
+                Database.column = "life_Four";
+                Database.lostTime = getCurrentTime();
+                life4.sprite = lostImage;
+            }
+        }
     }
 
     private string getCurrentTime()

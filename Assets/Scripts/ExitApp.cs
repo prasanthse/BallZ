@@ -12,17 +12,12 @@ public class ExitApp : MonoBehaviour
     public static bool pause = false;
     private Button yes, no;
 
-    private Camera camera;
-
     void Start()
     {
         yes = GameObject.FindGameObjectWithTag("YesQuit").GetComponent<Button>();
         no = GameObject.FindGameObjectWithTag("NoQuit").GetComponent<Button>();
 
-        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-
         exitWindow.SetActive(false);
-        camera.enabled = true;
     }
 
     void Update()
@@ -30,9 +25,7 @@ public class ExitApp : MonoBehaviour
         if (Input.GetKey("escape"))
         {
             if (mainMenu || game)
-            {
-                camera.enabled = false;
-
+            { 
                 if (game)
                 {
                     GamePause();
@@ -57,7 +50,6 @@ public class ExitApp : MonoBehaviour
 
     private void noQuit()
     {
-        camera.enabled = true;
         exitWindow.SetActive(false);
         pause = false;
         Time.timeScale = 1;
