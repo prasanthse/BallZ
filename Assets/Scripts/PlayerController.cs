@@ -133,17 +133,4 @@ public class PlayerController : MonoBehaviour
         ExitApp.pause = false;
         slowMotion = false;
     }
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.tag.Equals("Path"))
-    //    {
-    //        rigid.isKinematic = false;
-
-    //        PlayerDead.isDead = true;
-
-    //        PlayerDead.x = transform.position.x;
-    //        PlayerDead.z = transform.position.z;
-    //    }
-    //}
 }

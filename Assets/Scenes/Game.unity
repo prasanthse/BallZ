@@ -515,7 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2042983983}
   path1: {fileID: 1798106774334616847, guid: 2d273b0191a45b542a36be8f91897e84, type: 3}
-  path2: {fileID: 1546393006865727140, guid: 2aa88293c1705754f95ea5624414b786, type: 3}
+  path2: {fileID: 1798106774334616847, guid: 2d273b0191a45b542a36be8f91897e84, type: 3}
   star: {fileID: 6222713579760649786, guid: 007f034d6da42b34d9b3c58f2456f20b, type: 3}
   lastPath: {fileID: 503400420883519725, guid: c0123777e1e5b484984668877d1cc9fd, type: 3}
 --- !u!114 &194770305
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194770298}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 204a4561b1a9fd846a668c83fd54acb0, type: 3}
   m_Name: 
@@ -956,7 +956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 173.20001, y: -80.55}
+  m_AnchoredPosition: {x: 173.20001, y: -80.54999}
   m_SizeDelta: {x: 406.2, y: 25.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406593961
@@ -2285,7 +2285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -179.1, y: -45.300003}
+  m_AnchoredPosition: {x: -179.1, y: -45.299988}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1748088013
@@ -2823,7 +2823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   counting: {fileID: 538769835}
   time: 6
-  speed: 0.5
+  speed: 0.8
   holeSound: {fileID: 2042983990}
   gameOver: {fileID: 111953359}
 --- !u!54 &2042983985

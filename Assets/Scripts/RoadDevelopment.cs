@@ -50,18 +50,19 @@ public class RoadDevelopment : MonoBehaviour
     private void ChangeShapes()
     {
         selectedPath = random.randomNumberGenerator(0, numberOfPaths);
+        Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * NumberOfPaths.pathsCreated + 98)), Quaternion.identity);
 
-        if((int)selectedPath == 0)
-        {
-            Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * NumberOfPaths.pathsCreated + 98)), Quaternion.identity);
-            //getLastPathIndex = 0;
-        }
-        else if((int)selectedPath == 1)
-        {
-            Instantiate(pathTypes[(int)selectedPath], new Vector3(1.6F, 0, (200 * NumberOfPaths.pathsCreated + 27.73F)), Quaternion.identity);
-            //getLastPathIndex = 1;
-        }
-        
+        //if((int)selectedPath == 0)
+        //{
+        //    Instantiate(pathTypes[(int)selectedPath], new Vector3(0, 0, (200 * NumberOfPaths.pathsCreated + 98)), Quaternion.identity);
+        //    //getLastPathIndex = 0;
+        //}
+        //else if((int)selectedPath == 1)
+        //{
+        //    Instantiate(pathTypes[(int)selectedPath], new Vector3(1.6F, 0, (200 * NumberOfPaths.pathsCreated + 27.73F)), Quaternion.identity);
+        //    //getLastPathIndex = 1;
+        //}
+
         NumberOfPaths.calculatePathCount();
     }
 
